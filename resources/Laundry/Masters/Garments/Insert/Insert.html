@@ -24,7 +24,7 @@
     <header>
         <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Customers</a>
+                <a class="navbar-brand" href="#">Garments</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -34,7 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarsExample06">
                     <ul class="navbar-nav me-auto mb-2 mb-xl-0" id="KHeader">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../../Masters.html" id="MastersHeaderId">
+                            <a class="nav-link active" aria-current="page" href="../../Masters.html"
+                                id="MastersHeaderId">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="35" height="30" fill="currentColor"
                                     class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd"
@@ -95,7 +96,7 @@
             <div class="card card-danger">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col">Masters/Customers/Insert</div>
+                        <div class="col">Masters/Garments/Insert</div>
                     </div>
                 </div>
 
@@ -103,10 +104,10 @@
                     <form id="FormVertical" onsubmit="return false;">
                         <div class="row">
                             <div class="col">
-                                <label class="col-form-label fs-2">Customer Name</label>
+                                <label class="col-form-label fs-2">Garment Name</label>
                                 <div class="col">
-                                    <input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName"
-                                        aria-describedby="emailHelp" required="" value="Charan" autofocus>
+                                    <input type="text" class="form-control fs-2" name="GarmentName" id="GarmentName"
+                                        aria-describedby="emailHelp" required="">
                                     <div class="invalid-feedback">
                                         Should not be empty!
                                     </div>
@@ -115,10 +116,10 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label class="col-md-6 col-form-label fs-2">Mobile</label>
+                                <label class="col-form-label fs-2">Garment Description</label>
                                 <div class="col">
-                                    <input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
-                                        pattern="[6789][0-9]{9}">
+                                    <textarea class="form-control fs-2" name="GarmentDescription"
+                                        id="GarmentDescription" required=""></textarea>
                                     <div class="invalid-feedback">
                                         Should not be empty!
                                     </div>
@@ -127,9 +128,10 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <label class="col-md-6 col-form-label fs-2">City</label>
+                                <label class="col-md-6 col-form-label fs-2">Price</label>
                                 <div class="col">
-                                    <input type="text" class="form-control fs-2" name="City" id="City" required="">
+                                    <input type="number" min="1" class="form-control fs-2" name="Price" id="Price"
+                                        required="">
                                     <div class="invalid-feedback">
                                         Should not be empty!
                                     </div>
@@ -139,7 +141,7 @@
                     </form>
                 </div>
                 <div class="card-footer text-muted">
-                    <button class="btn btn-success fs-3" id="CustomersSaveButtonId">Save</button>
+                    <button class="btn btn-success fs-3" id="GarmentsSaveButtonId">Save</button>
                 </div>
             </div>
         </div>
@@ -240,7 +242,7 @@
         Neutralino.init();
     </script>
 
-    <script src="/Laundry/Masters/Garments/Insert/Js/AddListeners.js" type="module"></script>
+    <script src="Js/AddListeners.js" type="module"></script>
 </body>
 
 </html>
