@@ -1,0 +1,19 @@
+# Developer tools' files
+.lite_workspace.lua
+
+# Neutralinojs binaries and builds
+/dist
+
+# Neutralinojs related files
+.storage
+*.log
+
+/node_modules
+/temp
+/KData
+/bin
+/resources/dist
+
+package-lock.json
+
+.tmp
