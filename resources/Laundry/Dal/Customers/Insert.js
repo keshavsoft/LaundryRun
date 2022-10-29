@@ -27,25 +27,28 @@ let UniqueColumnReturn = async () => {
 
     return await UniqueColumnsDataAsJson.ColumnName;
 };
+
 let InsertFunc = async ({ inDataToSave = {} }) => {
     let inObjectToInsert = inDataToSave
-    let LocalJsonFileName = "Customers.json";
-
+    //let LocalJsonFileName = "Customers.json";
+    console.log("save : ", inObjectToInsert);
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
-    let ModalDataAsJson = JSON.parse(ModalData);
+    // let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
+    // let ModalDataAsJson = JSON.parse(ModalData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile('./KData/JSON/2017/Data/Masters/Customers.json');
+
+    //  let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-    let LocalKeys = Object.keys(LocalCustomersDataAsJson);
+    let LocalKeys = Object.keys(LocalCustomersDataAsJson.CustomerNames);
     let max = 1;
-    let LocalFromUnique = await UniqueFunc({ inObjectToInsert });
+    // let LocalFromUnique = await UniqueFunc({ inObjectToInsert });
 
-    if (LocalFromUnique.KTF) {
-        LocalReturnObject.KReason = LocalFromUnique.KReason;
-        return await LocalReturnObject;
-    };
+    // if (LocalFromUnique.KTF) {
+    //     LocalReturnObject.KReason = LocalFromUnique.KReason;
+    //     return await LocalReturnObject;
+    // };
 
     if (LocalKeys.length > 0) {
         let LocalKeysAsNumbers = toNumbers(LocalKeys);
@@ -53,10 +56,16 @@ let InsertFunc = async ({ inDataToSave = {} }) => {
         max = Math.max(...LocalKeysAsNumbers) + 1;
     };
 
-    let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
-    LocalCustomersDataAsJson[max] = LocalNewData;
+    //let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
+    //    let LocalNewData = inObjectToInsert;
 
-    let LocalFromWriteFile = await Neutralino.filesystem.writeFile('./KData/JSON/2017/Customers.json', JSON.stringify(LocalCustomersDataAsJson));
+
+    // let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
+    // LocalCustomersDataAsJson[max] = LocalNewData;
+
+    LocalCustomersDataAsJson.CustomerNames[max] = inObjectToInsert;
+
+    let LocalFromWriteFile = await Neutralino.filesystem.writeFile('./KData/JSON/2017/Data/Masters/Customers.json', JSON.stringify(LocalCustomersDataAsJson));
 
     if (LocalFromWriteFile.success) {
         let LocalReturnColumnName = await UniqueColumnReturn();
