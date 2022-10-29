@@ -45,7 +45,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-info" href="#" id="CustomersShowHeaderId">
+							<a class="nav-link text-info" href="../Show/Show.html" id="CustomersShowHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 									<path
@@ -55,8 +55,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-White active" href="../Insert/Insert.html"
-								id="CustomersInsertHeaderId">
+							<a class="nav-link text-White active" href="#" id="CustomersInsertHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 									<path
@@ -94,67 +93,54 @@
 
 	<main>
 		<div class="container" id="KCont1">
-			<div class="card">
+			<div class="card card-danger">
 				<div class="card-header">
 					<div class="row">
 						<div class="col">Masters/Customers/Insert</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-12">
-						<div class="card">
-							<div class="card-body">
 
-								<form id="FormVertical" onsubmit="return false;">
-									<div class="row">
-										<div class="col">
-											<label class="col-form-label fs-2">Customer Name</label>
-											<div class="col">
-												<input type="text" class="form-control fs-2" name="CustomerName"
-													id="CustomerName" aria-describedby="emailHelp" required=""
-													autofocus>
-												<div class="invalid-feedback">
-													Should not be empty!
-												</div>
-											</div>
-										</div>
+				<div class="card-body">
+					<form id="FormVertical" onsubmit="return false;">
+						<div class="row">
+							<div class="col">
+								<label class="col-form-label fs-2">Customer Name</label>
+								<div class="col">
+									<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName"
+										aria-describedby="emailHelp" required="" value="Charan" autofocus>
+									<div class="invalid-feedback">
+										Should not be empty!
 									</div>
-									<div class="row">
-										<div class="col">
-											<label class="col-md-6 col-form-label fs-2">Mobile</label>
-											<div class="col">
-												<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
-													pattern="[6789][0-9]{9}">
-												<div class="invalid-feedback">
-													Should not be empty!
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col">
-											<label class="col-md-6 col-form-label fs-2">City</label>
-											<div class="col">
-												<input type="text" class="form-control fs-2" name="City" id="City"
-													required="">
-												<div class="invalid-feedback">
-													Should not be empty!
-												</div>
-											</div>
-										</div>
-									</div>
-								</form>
-							</div>
-							<div class="card-footer text-muted">
-								<button class="btn btn-success fs-3" id="CustomersSaveButtonId">Save</button>
+								</div>
 							</div>
 						</div>
-					</div>
+						<div class="row">
+							<div class="col">
+								<label class="col-md-6 col-form-label fs-2">Mobile</label>
+								<div class="col">
+									<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
+										pattern="[6789][0-9]{9}">
+									<div class="invalid-feedback">
+										Should not be empty!
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<label class="col-md-6 col-form-label fs-2">City</label>
+								<div class="col">
+									<input type="text" class="form-control fs-2" name="City" id="City" required="">
+									<div class="invalid-feedback">
+										Should not be empty!
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
 				<div class="card-footer text-muted">
-
-					Footer
-
+					<button class="btn btn-success fs-3" id="CustomersSaveButtonId">Save</button>
 				</div>
 			</div>
 		</div>
@@ -175,6 +161,8 @@
 	</footer>
 
 	<script src="/Laundry/js/bootstrap.min.js"></script>
+
+	<script src="/Laundry/js/lodash.js"></script>
 
 	<script src="/js/neutralino.js"></script>
 
@@ -254,9 +242,6 @@
 	</script>
 
 	<script src="Js/AddListeners.js" type="module"></script>
-
-	<!-- <script src="/Laundry/Masters/Customers/Insert/Js/Insert.js" type="module"></script> -->
-
 </body>
 
 </html>

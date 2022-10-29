@@ -1,0 +1,25 @@
+{
+    "Firm": {
+        "FirmName": "LAUNDRY",
+        "FromDate": "01-04-2020",
+        "ToDate": "31-03-2021",
+        "Config": {
+            "Ui": {
+                "Login": {
+                    "RedirectPage": "/JSONApi/Html/UserData/Tally.html"
+                }
+            },
+            "Html": {
+                "ForPrint": {
+                    "Files": [
+                        "1.html",
+                        "2.html",
+                        "3.BuyerDetails.html",
+                        "4.InventoryGrid.html",
+                        "5.TaxFGrid.html"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -10,6 +10,9 @@ let CustomersSaveFunc = async () => {
     };
 
     let jVarLocalFromInsert = await CustomersInsertDalFunc({ inDataToSave: jVarLocalObject });
+
+    console.log("jVarLocalFromInsert : ", jVarLocalFromInsert);
+
     // await LocalPostSaveFunc({ inFromSave: jVarLocalFromInsert });
 };
 
