@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">Masters/Garments/Show</div>
+            <div class="col"><input id="SearchQrCodeTable" class="form-control" type="search" placeholder="Search"
+                    onkeypress="jFSearchInputKeyPress(event)" aria-label="Search" autocomplete="off"></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th scope="col" width="5%">#</th>
+                        <th scope="col" width="20%">Garment Name</th>
+                        <th scope="col" width="25%">Garment Description</th>
+                        <th scope="col" width="20%">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="KTableBody">
+                    {{#each this}}
+                    <tr>
+                        <td>{{SNo}}</td>
+                        <td>{{GarmentName}}</td>
+                        <td>{{GarmentDescription}}</td>
+                        <td>{{Price}}</td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+
+        Footer
+
+    </div>
+</div>
