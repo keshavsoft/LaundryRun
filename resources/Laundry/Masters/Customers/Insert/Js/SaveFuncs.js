@@ -1,6 +1,10 @@
 import { InsertFunc as CustomersInsertDalFunc } from "../../../../Dal/Customers/Insert.js";
 
-let CustomersSaveFunc = async () => {
+let CustomersSaveFunc = async (event) => {
+    let jVarLocalCurrentTarget = event.currentTarget;
+
+    console.log("jVarLocalCurrentTarget : ", jVarLocalCurrentTarget);
+
     //  LocalPreSaveFunc();
     let jVarLocalObject = {};
     let LocalCustomerDetails = jFCustomerDetails();
@@ -11,7 +15,13 @@ let CustomersSaveFunc = async () => {
 
     let jVarLocalFromInsert = await CustomersInsertDalFunc({ inDataToSave: jVarLocalObject });
 
-    console.log("jVarLocalFromInsert : ", jVarLocalFromInsert);
+
+    if (jVarLocalFromInsert.KTF === false) {
+        let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
+
+        console.log("jVarClosestCard : ", jVarClosestCard, jVarClosestCard.classList.add("border-danger"));
+
+    };
 
     // await LocalPostSaveFunc({ inFromSave: jVarLocalFromInsert });
 };
