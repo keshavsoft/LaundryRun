@@ -4,6 +4,9 @@ import { ShowDalFunc as CustomerShowDalFunc } from "./DalFuncs.js";
 
 
 let CustomersShowFunc = async (inEvent) => {
+    let jVarLocalShowOfflineSpinnerId = document.getElementById("ShowOfflineSpinnerId");
+    jVarLocalShowOfflineSpinnerId.classList.remove("d-none");
+
     if ((inEvent === undefined) === false) {
         let jVarLocalCurrentTarget = inEvent.currentTarget;
         ChangeClassFunc({ inHtmlControl: jVarLocalCurrentTarget });
@@ -24,6 +27,8 @@ let CustomersShowFunc = async (inEvent) => {
     document.getElementById("KCont1").innerHTML = jVarLocalHtml;
 
     LocalSetFocusFunc();
+
+    jVarLocalShowOfflineSpinnerId.classList.add("d-none");
 };
 
 let LocalSetFocusFunc = () => {
