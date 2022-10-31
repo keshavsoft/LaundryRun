@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="/Laundry/css/header.css">
 </head>
 
-<body class="mb-5">
+<body>
 	<header>
 		<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
 			<div class="container-fluid">
@@ -45,7 +45,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-info" href="../Show/Show.html" id="CustomersShowHeaderId">
+							<a class="nav-link text-White" href="#" id="CustomersShowHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 									<path
@@ -55,7 +55,8 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-White active" href="#" id="CustomersInsertHeaderId">
+							<a class="nav-link text-White active" href="../Insert/Insert.html"
+								id="CustomersInsertHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 									<path
@@ -68,7 +69,7 @@
 						</li>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link text-White active" href="../Alter/Alter.html"
+						<a class="nav-link text-info active" href="../Alter/Alter.html"
 							id="CustomersInsertHeaderId">
 							<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 								<path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
@@ -88,61 +89,20 @@
 	</header>
 
 	<main>
-	
+		<div class="d-flex align-items-center container mt-3 d-none" id="ShowOfflineSpinnerId">
+			<strong>Loading...</strong>
+			<div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+		</div>
 
 		<div class="container" id="KCont1">
-			<div class="card m-3">
-				<div class="card-header">
-					<div class="row">
-						<div class="col">Masters/Customers/Insert</div>
-					</div>
-				</div>
 
-				<div class="card-body">
-					<form id="FormVertical" onsubmit="return false;">
-						<div class="row">
-							<div class="col">
-								<label class="col-form-label fs-2">Customer Name</label>
-								<div class="col">
-									<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName"
-										aria-describedby="emailHelp" required="" value="Charan" autofocus>
-									<div class="invalid-feedback">
-										Should not be empty!
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<label class="col-md-6 col-form-label fs-2">Mobile</label>
-								<div class="col">
-									<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
-										pattern="[6789][0-9]{9}">
-									<div class="invalid-feedback">
-										Should not be empty!
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col">
-								<label class="col-md-6 col-form-label fs-2">City</label>
-								<div class="col">
-									<input type="text" class="form-control fs-2" name="City" id="City" required="">
-									<div class="invalid-feedback">
-										Should not be empty!
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-				<div class="card-footer text-muted">
-					<button class="btn btn-success fs-3" id="CustomersSaveButtonId">Save</button>
-				</div>
-			</div>
 		</div>
 	</main>
+
+	<div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+		<div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+		<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
 
 	<footer class="footer mt-auto py-2 bg-light fixed-bottom">
 		<div class="container">
@@ -155,11 +115,18 @@
 
 	<script src="/Laundry/js/bootstrap.min.js"></script>
 
-	<script src="/Laundry/js/lodash.js"></script>
-
 	<script src="/js/neutralino.js"></script>
 
+
 	<script src="/Laundry/js/handlebars.min-v4.7.7.js"></script>
+	<!-- 	
+
+	<script src="/js/print.min.js"></script>
+	<script src="/js/sweetalert2.js"></script>
+
+	<script src="/js/KeshavSoft/HandleBars/HelperFuns.js"></script>
+
+	<script src="/dist/bundle.js"></script> -->
 
 	<script>
 		let jFSearchInputKeyPress = (event) => {
@@ -174,28 +141,7 @@
 			};
 		};
 
-		let myFunction = () => {
-			var input, filter, table, tr, td, i;
-			input = document.getElementById("SearchQrCodeTable");
-			filter = input.value;
-			table = document.getElementById("myTable");
-			tr = table.getElementsByTagName("tr");
-			console.log("1111111111 : ", input, filter);
-			for (i = 0; i < tr.length; i++) {
-				td = tr[i].getElementsByTagName("td")[0];
-				if (td) {
-					console.log("222222 : ", td.innerHTML);
-
-					if (td.innerHTML.indexOf(filter) > -1) {
-						tr[i].style.display = "";
-					} else {
-						tr[i].style.display = "none";
-					}
-				}
-			}
-		};
-
-		function LocalSearchTable({ inTable }) {
+		let LocalSearchTable = ({ inTable }) => {
 			// Declare variables 
 			var input, filter, table, tr, td, i;
 			input = document.getElementById("SearchQrCodeTable");
@@ -225,7 +171,10 @@
 		Neutralino.init();
 	</script>
 
-	<script src="Js/AddListeners.js" type="module"></script>
+	<script src="Js/Alter.js" type="module"></script>
+
+	<!-- <script src="/Laundry/Masters/Customers/Show/Js/Show.js" type="module"></script>
+	 -->
 </body>
 
 </html>
