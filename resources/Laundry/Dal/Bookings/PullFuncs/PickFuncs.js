@@ -1,16 +1,14 @@
-import { StartFunc as FuncsForPkStartFunc } from "../FuncsForPk/Start";
+import { StartFunc as FuncsForPkStartFunc } from "../FuncsForPk/Start.js";
 //import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/Original";
-import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/WithBookingData";
-import { StartFunc as CompletedStartFunc } from "../../Completed/PullFuncs/Original";
-
-import _ from "../../../js/lodash";
+import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/WithBookingData.js";
+import { StartFunc as CompletedStartFunc } from "../../Completed/PullFuncs/Original.js";
 
 let FromPk = async ({ inRowPK }) => {
     let LocalJsonFileName = "Bookings.json";
 
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     if (inRowPK in LocalCustomersDataAsJson) {

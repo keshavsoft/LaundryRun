@@ -1,6 +1,5 @@
-import { StartFunc as MaxPkFunc } from "../FuncsForPk/MaxPk";
-import { FromBooking as QrCodesStartFunc } from "../../QrCodes/PushFuncs/SaveFunc";
-import _ from "../../../js/lodash";
+import { StartFunc as MaxPkFunc } from "../FuncsForPk/MaxPk.js";
+import { FromBooking as QrCodesStartFunc } from "../../QrCodes/PushFuncs/SaveFunc.js";
 
 let StartFunc = async ({ inDataToSave = {} }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
@@ -61,13 +60,13 @@ let LocalToJson = async ({ inDataToSave, inPK }) => {
     try {
         let LocalJsonFileName = "Bookings.json";
 
-        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
         if ((inPK in LocalCustomersDataAsJson) === false) {
             LocalCustomersDataAsJson[inPK] = inDataToSave;
 
-            let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/${LocalJsonFileName}`, JSON.stringify(LocalCustomersDataAsJson));
+            let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`, JSON.stringify(LocalCustomersDataAsJson));
 
             if (LocalFromWriteFile.success) {
                 LocalReturnObject.KTF = true;

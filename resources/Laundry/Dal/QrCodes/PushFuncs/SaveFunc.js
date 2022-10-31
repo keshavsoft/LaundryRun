@@ -1,7 +1,7 @@
-import { StartFunc } from "../FuncsForPk/Start";
-import { FromPk as BookingsFromPk } from "../../Bookings/PullFuncs/PickFuncs";
-import { InsertFunc } from "../../QrCodes/PushFuncs/Insert";
-import { StartFunc as MaxPk } from "../FuncsForPk/MaxPk";
+import { StartFunc } from "../FuncsForPk/Start.js";
+import { FromPk as BookingsFromPk } from "../../Bookings/PullFuncs/PickFuncs.js";
+import { InsertFunc } from "../../QrCodes/PushFuncs/Insert.js";
+import { StartFunc as MaxPk } from "../FuncsForPk/MaxPk.js";
 
 let FromBooking = async ({ inBookingPk }) => {
     let LocalBookingPk = inBookingPk;
