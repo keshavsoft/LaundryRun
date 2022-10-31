@@ -3,7 +3,7 @@ let StartFunc = async () => {
 
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     LocalReturnObject.JsonData = LocalCustomersDataAsJson;
