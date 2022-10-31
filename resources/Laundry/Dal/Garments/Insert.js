@@ -1,19 +1,18 @@
 let CommonJsonFileName = "Garments.json";
 let CommonDataPath = `./KData/JSON/2017/Data/Masters/${CommonJsonFileName}`;
+let CommonItemName = "GarmentNames";
 
 let UniqueFunc = async ({ inObjectToInsert = {} }) => {
-    let LocalJsonFileName = "Garments.json";
-
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let UniqueColumnsData = await Neutralino.filesystem.readFile(`./KData/JSON/UniqueColumns/${LocalJsonFileName}`);
+    let UniqueColumnsData = await Neutralino.filesystem.readFile(`./KData/JSON/UniqueColumns/${CommonJsonFileName}`);
     let UniqueColumnsDataAsJson = JSON.parse(UniqueColumnsData);
 
     let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalValueToCheck = _.get(inObjectToInsert, UniqueColumnsDataAsJson.ColumnName);
 
-    let LocalDataNeeded = _.map(Object.values(LocalCustomersDataAsJson.GarmentName), UniqueColumnsDataAsJson.ColumnName);
+    let LocalDataNeeded = _.map(Object.values(LocalCustomersDataAsJson[CommonItemName]), UniqueColumnsDataAsJson.ColumnName);
 
     if (LocalDataNeeded.includes(LocalValueToCheck)) {
         LocalReturnObject.KTF = true;
@@ -30,6 +29,7 @@ let UniqueColumnReturn = async () => {
 
     return await UniqueColumnsDataAsJson.ColumnName;
 };
+
 let InsertFunc = async ({ inDataToSave = {} }) => {
     let inObjectToInsert = inDataToSave
     let LocalJsonFileName = "Garments.json";
@@ -41,9 +41,9 @@ let InsertFunc = async ({ inDataToSave = {} }) => {
 
     let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Masters/Garments.json`);
 
-        //  let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    //  let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-    let LocalKeys = Object.keys(LocalCustomersDataAsJson);
+    let LocalKeys = Object.keys(LocalCustomersDataAsJson[CommonItemName]);
     let max = 1;
     let LocalFromUnique = await UniqueFunc({ inObjectToInsert });
 
@@ -59,7 +59,7 @@ let InsertFunc = async ({ inDataToSave = {} }) => {
     };
 
     let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
-    LocalCustomersDataAsJson[max] = LocalNewData;
+    LocalCustomersDataAsJson[CommonItemName][max] = LocalNewData;
 
     let LocalFromWriteFile = await Neutralino.filesystem.writeFile('./KData/JSON/2017/Data/Masters/Garments.json', JSON.stringify(LocalCustomersDataAsJson));
 
