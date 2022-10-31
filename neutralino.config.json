@@ -1,7 +1,7 @@
 {
   "applicationId": "js.neutralino.sample",
   "version": "1.0.0",
-  "defaultMode": "browser",
+  "defaultMode": "window",
   "port": 0,
   "documentRoot": "/resources/",
   "url": "/Laundry/Start.html",
