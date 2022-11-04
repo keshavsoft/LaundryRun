@@ -1,4 +1,4 @@
-import { StartFunc as OriginalStartFunc } from "./Original";
+import { StartFunc as OriginalStartFunc } from "./Original.js";
 
 let StartFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

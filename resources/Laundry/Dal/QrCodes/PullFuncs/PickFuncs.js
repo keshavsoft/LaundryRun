@@ -1,4 +1,4 @@
-import { FromPkForQrCodes } from "../../Bookings/PullFuncs/PickFuncs";
+import { FromPkForQrCodes } from "../../Bookings/PullFuncs/PickFuncs.js";
 
 let FromBookingPk = async ({ inBookingPK }) => {
     let LocalJsonFileName = "QrCodes.json";
@@ -15,7 +15,7 @@ let FromBookingPk = async ({ inBookingPK }) => {
 
         let LocalBookingGarmentsData = LocalBookingData.ForQrCode.GarmentDetails;
 
-        let LocalQrCodesData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+        let LocalQrCodesData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
         let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
 
         let LocalQrCodesCollection = Object.entries(LocalQrCodesJsonData).map(

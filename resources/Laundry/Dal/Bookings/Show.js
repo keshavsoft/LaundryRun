@@ -36,6 +36,7 @@ let ShowAllFunc = async () => {
     return await LocalReturnObject;
 };
 
+
 let ShowTodayFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
@@ -48,7 +49,6 @@ let ShowTodayFunc = async () => {
 
         let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-
         let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
 
         let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
@@ -56,6 +56,7 @@ let ShowTodayFunc = async () => {
                 return LoopItem.value.DateTime.substring(0, 10) === LocalGetDateOnly();
             };
         });
+        console.log("LocalFilteredData:--",LocalFilteredData);
 
         LocalReturnObject.JsonData = LocalFilteredData;
 
@@ -136,4 +137,4 @@ let LocalGetDateOnly = () => {
 
     return `${dd}-${MM}-${yyyy}`;
 };
-export { ShowFunc,ShowAllFunc,ShowTodayFunc}
+export { ShowFunc, ShowAllFunc, ShowTodayFunc }

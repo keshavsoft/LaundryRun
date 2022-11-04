@@ -1,8 +1,7 @@
-import { QrCodeHtmlFunc } from "../Js/HtmlFuncs/FromHbs";
-import { ShowAllFunc } from "../../ShowAll/Js/DalFuncs";
-import { ChangeClassFunc } from "../../../../CommonFuncs/Header";
-import { AddListeners } from "./QrCodeToModal";
-import { ShowAllFunc as DalStartFunc } from "./DalFuncs";
+import { QrCodeHtmlFunc } from "../Js/HtmlFuncs/FromHbs.js";
+// import { ChangeClassFunc } from "../../../../CommonFuncs/Header";
+import { AddListeners } from "./QrCodeToModal.js";
+import { ShowAllFunc as DalStartFunc } from "./DalFuncs.js";
 
 let QrcodeShowAll = async (inEvent) => {
     if ((inEvent === undefined) === false) {
@@ -34,4 +33,4 @@ let LocalSetFocusFunc = () => {
     jVarLocalCustomerName.focus();
 };
 
-export { QrcodeShowAll }
+QrcodeShowAll().then();

@@ -1,6 +1,6 @@
-import { QrCodeModalPopUp } from "../../QrCode/Js/HtmlFuncs/FromHbs";
-import { PickFuncForQrCode } from "../../../../../Dal/Bookings/Pick";
-import { FromBookingPk } from "../../../../../Dal/QrCodes/PullFuncs/PickFuncs";
+import { QrCodeModalPopUp } from "../Js/HtmlFuncs/FromHbs.js";
+// import { PickFuncForQrCode } from "../../../../../Dal/Bookings/Pick";
+import { FromBookingPk } from "../../../../Dal/QrCodes/PullFuncs/PickFuncs.js";
 
 let ToModal = async ({ inRowPK }) => {
     //  let jVarLocalDataNeeded = await PickFuncForQrCode({ inRowPK });
