@@ -1,6 +1,10 @@
 import { StartFunc as MaxPkFunc } from "../FuncsForPk/MaxPk.js";
 import { FromBooking as QrCodesStartFunc } from "../../QrCodes/PushFuncs/SaveFunc.js";
 
+let CommonJsonFileName = "Bookings.json";
+let CommonJsonPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "Bookings";
+
 let StartFunc = async ({ inDataToSave = {} }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
@@ -18,7 +22,7 @@ let StartFunc = async ({ inDataToSave = {} }) => {
             inDataToSave: await LocalTemplateDataToSave({ inDataToSave }),
             inPK: LocalMax
         });
-        
+
         if (LocalFromJsonSave.KTF === false) {
             LocalReturnObject.KReason = LocalReturnObject.KReason;
             return await LocalReturnObject;
@@ -58,15 +62,15 @@ let LocalToJson = async ({ inDataToSave, inPK }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
     try {
-        let LocalJsonFileName = "Bookings.json";
+        //let LocalJsonFileName = "Bookings.json";
 
-        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonJsonPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-        if ((inPK in LocalCustomersDataAsJson) === false) {
-            LocalCustomersDataAsJson[inPK] = inDataToSave;
+        if ((inPK in LocalCustomersDataAsJson[CommonItemName]) === false) {
+            LocalCustomersDataAsJson[CommonItemName][inPK] = inDataToSave;
 
-            let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`, JSON.stringify(LocalCustomersDataAsJson));
+            let LocalFromWriteFile = await Neutralino.filesystem.writeFile(CommonJsonPath, JSON.stringify(LocalCustomersDataAsJson));
 
             if (LocalFromWriteFile.success) {
                 LocalReturnObject.KTF = true;
@@ -93,4 +97,5 @@ let LocalGetDate = () => {
 
     return `${dd}-${MM}-${yyyy}-${HH}-${mm}-${ss}`;
 };
+
 export { StartFunc };

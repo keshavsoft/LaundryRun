@@ -439,27 +439,4 @@ let jFGarmentsTenthRow = () => {
     return jVarLocalReturnObject;
 };
 
-// let jFGarmentsTotal = () => {
-//     let jVarLocalReturnObject = { KTF: false, KResult: {} };
-
-//     let jVarLocalPcs10 = document.getElementById("Pcs10");
-//     let jVarLocalPcs1 = document.getElementById("Pcs1");
-
-//     let jVarLocalGarmentsTotal = parseInt(jVarLocalPcs10.value) + parseInt(jVarLocalPcs1.value)
-
-
-//     if ((jVarLocalGarmentsTotal > 0) === false) {
-//         jVarLocalReturnObject.KReason = "Pcs is not positive";
-//         return jVarLocalReturnObject;
-//     };
-
-//     jVarLocalReturnObject.KTF = true;
-
-//     jVarLocalReturnObject.KResult = {
-//         TotalGarments: jVarLocalGarmentsTotal
-//     };
-
-//     return jVarLocalReturnObject;
-// };
-
 export { BookingSaveFunc };

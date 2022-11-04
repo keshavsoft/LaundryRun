@@ -1,13 +1,15 @@
+let CommonJsonFileName = "Bookings.json";
+let CommonJsonPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "Bookings";
+
 let StartFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
     try {
-        let LocalJsonFileName = "Bookings.json";
-
-        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonJsonPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-        let LocalKeys = Object.keys(LocalCustomersDataAsJson);
+        let LocalKeys = Object.keys(LocalCustomersDataAsJson[CommonItemName]);
 
         LocalReturnObject.KTF = true;
         LocalReturnObject.MaxPk = 0;
