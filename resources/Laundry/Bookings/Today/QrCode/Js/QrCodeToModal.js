@@ -1,11 +1,9 @@
 import { QrCodeModalPopUp } from "../Js/HtmlFuncs/FromHbs.js";
-// import { PickFuncForQrCode } from "../../../../../Dal/Bookings/Pick";
 import { FromBookingPk } from "../../../../Dal/QrCodes/PullFuncs/PickFuncs.js";
 
 let ToModal = async ({ inRowPK }) => {
     //  let jVarLocalDataNeeded = await PickFuncForQrCode({ inRowPK });
     let jVarLocalDataNeeded = await FromBookingPk({ inBookingPK: inRowPK });
-
     try {
         if (jVarLocalDataNeeded.KTF) {
             let jVarLocalModalBody = document.getElementById("ModalBody");
@@ -54,7 +52,9 @@ let AddListeners = () => {
         jVarLocalQrCodeButtonClass[i].addEventListener('click', async (inEvent) => {
             let jVarInsideCurrentTarget = inEvent.currentTarget;
             let jVarInsideClosestTr = jVarInsideCurrentTarget.closest("tr");
+            console.log("jVarInsideClosestTr...........:",jVarInsideClosestTr);
             let jVarInsideQrCodeValue = jVarInsideClosestTr.dataset.qrcode;
+            console.log("jVarInsideQrCodeValue---------:",jVarInsideQrCodeValue);
             ToModal({ inRowPK: jVarInsideQrCodeValue });
         });
     };

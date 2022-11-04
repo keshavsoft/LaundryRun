@@ -1,0 +1,48 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">All QrCodes</div>
+            <div class="col"><input id="SearchQrCodeTable" class="form-control" type="search" placeholder="Search"
+                onkeypress="jFSearchInputKeyPress(event)" aria-label="Search" autocomplete="off"></div>
+        </div>
+    </div>
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">OrderNo</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Garment Name</th>
+                <th scope="col">QrCode</th>
+                
+            </tr>
+        </thead>
+        <tbody id="KTableBody">
+            {{#each this}}
+            {{log "QrCode" this}}
+            <tr>
+                <td>{{SNo}}</td>
+                <td>{{OrderNo}}</td>
+                <td>{{CustomerName}}</td>
+                <td>{{Mobile}}</td>
+                <td>{{GarmentName}}</td>
+                <td>{{QrCode}}</td>
+                <td>{{ShowInIndianDateFormat Amount}}</td>
+            
+                <td>{{key}}</td>
+            </tr>
+            {{/each}}
+
+            
+     </tbody>
+    </table>
+</div>
+<div class="card-footer text-muted">
+
+    Footer
+
+</div>
+</div>
