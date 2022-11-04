@@ -1,5 +1,4 @@
-import { StartFunc as DalQrCodesAndCompleted } from "../../../../../Dal/Bookings/PullFuncs/QrCodesAndCompleted";
-import { StartFunc as DalQrCodesCompletedBilled } from "../../../../../Dal/Bookings/PullFuncs/QrCodesCompletedBilled";
+import { StartFunc as DalQrCodesCompletedBilled } from "../../../../Dal/Bookings/PullFuncs/QrCodesCompletedBilled.js";
 
 let ShowAll = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
