@@ -6,7 +6,7 @@ let ShowFunc = async () => {
     let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
     let ModalDataAsJson = JSON.parse(ModalData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
@@ -20,7 +20,7 @@ let ShowAllFunc = async () => {
 
     try {
         let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/${LocalJsonFileName}`;
+        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
 
         let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
@@ -36,19 +36,19 @@ let ShowAllFunc = async () => {
     return await LocalReturnObject;
 };
 
+
 let ShowTodayFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
     try {
 
         let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/${LocalJsonFileName}`;
+        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
 
         let stats = await Neutralino.filesystem.getStats(LocalFileName);
 
         let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-
         let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
 
         let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
@@ -56,6 +56,7 @@ let ShowTodayFunc = async () => {
                 return LoopItem.value.DateTime.substring(0, 10) === LocalGetDateOnly();
             };
         });
+        console.log("LocalFilteredData:--",LocalFilteredData);
 
         LocalReturnObject.JsonData = LocalFilteredData;
 
@@ -136,4 +137,4 @@ let LocalGetDateOnly = () => {
 
     return `${dd}-${MM}-${yyyy}`;
 };
-export { ShowFunc,ShowAllFunc,ShowTodayFunc}
+export { ShowFunc, ShowAllFunc, ShowTodayFunc }
