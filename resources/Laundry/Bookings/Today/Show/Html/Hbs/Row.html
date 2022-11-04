@@ -1,0 +1,12 @@
+{{#each this}}
+<tr>
+    <td>{{SNo}}</td>
+    <td>{{value.CustomerName}}</td>
+    <td>{{value.Mobile}}</td>
+    <td style="text-align:right">{{value.GarmentsTotalPcs}}</td>
+    <td style="text-align:right">{{value.Weight}}</td>
+    <td style="text-align:right">{{ShowInIndianDateFormat value.Amount}}</td>
+
+    <td> </td>
+</tr>
+{{/each}}
