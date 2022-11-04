@@ -6,7 +6,7 @@ let ShowFunc = async () => {
     let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
     let ModalDataAsJson = JSON.parse(ModalData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
     let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
@@ -20,7 +20,7 @@ let ShowAllFunc = async () => {
 
     try {
         let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/${LocalJsonFileName}`;
+        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
 
         let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
@@ -42,7 +42,7 @@ let ShowTodayFunc = async () => {
     try {
 
         let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/${LocalJsonFileName}`;
+        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
 
         let stats = await Neutralino.filesystem.getStats(LocalFileName);
 
