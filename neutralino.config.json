@@ -46,7 +46,8 @@
       "resizable": true,
       "exitProcessOnClose": false,
       "nativeAllowList": [
-        "filesystem.*"
+        "filesystem.*",
+        "app.*"
       ]
     },
     "browser": {
