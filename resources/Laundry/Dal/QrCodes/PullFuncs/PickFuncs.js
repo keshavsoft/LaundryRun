@@ -1,5 +1,5 @@
 import { FromPkForQrCodes } from "../../Bookings/PullFuncs/PickFuncs.js";
-import { StartFunc as OriginalStartFunc  } from "./Original.js";
+import { StartFunc as OriginalStartFunc } from "./Original.js";
 
 let CommonJsonFileName = "QrCodes.json";
 let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
@@ -22,15 +22,20 @@ let FromBookingPk = async ({ inBookingPK }) => {
         // let LocalQrCodesData = await Neutralino.filesystem.readFile(CommonDataPath);
         // let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
         let LocalOriginalData = await OriginalStartFunc();
-        let LocalQrCodesCollection = Object.entries(LocalOriginalData).map(
+        console.log("LocalOriginalData:", LocalOriginalData);
+        if (LocalOriginalData.KTF === false) {
+            LocalReturnObject.KReason = LocalOriginalData.KReason;
+            return await LocalReturnObject;
+        };
+
+        let LocalQrCodesCollection = Object.entries(LocalOriginalData.JsonData).map(
             ([key, value]) => {
                 return { ...value, QrCode: key }
             }
         );
-        console.log("LocalQrCodesCollection:", LocalQrCodesCollection);
-
+        console.log("LocalQrCodesCollection:", LocalQrCodesCollection, LocalBookingPk);
         let LocalFiltered = LocalQrCodesCollection.filter(element => element.BookingRef === LocalBookingPk);
-
+        console.log("LocalFiltered:", LocalFiltered);
         let LocalDataNeeded = LocalFiltered.map(element => {
             if (element.GarmentsRef in LocalBookingGarmentsData) {
                 element.CustomerName = LocalBookingData.ForQrCode.CustomerName;
@@ -45,14 +50,14 @@ let FromBookingPk = async ({ inBookingPK }) => {
             element.CanvasId = `Canvas${element.QrCode}`
             return element;
         });
-
+        console.log("LocalDataNeeded:", LocalDataNeeded);
         LocalReturnObject.KResult = LocalDataNeeded;
         LocalReturnObject.KTF = true;
 
     } catch (error) {
         console.log(error);
     };
-
+    console.log("LocalReturnObject:", LocalReturnObject);
     return await LocalReturnObject;
 };
 
