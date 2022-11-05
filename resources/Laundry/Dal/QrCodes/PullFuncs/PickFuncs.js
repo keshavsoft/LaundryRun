@@ -22,7 +22,7 @@ let FromBookingPk = async ({ inBookingPK }) => {
         let LocalQrCodesData = await Neutralino.filesystem.readFile(CommonDataPath);
         let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
 
-        let LocalQrCodesCollection = Object.entries(LocalQrCodesJsonData).map(
+        let LocalQrCodesCollection = Object.entries(LocalQrCodesJsonData[CommonItemName]).map(
             ([key, value]) => {
                 return { ...value, QrCode: key }
             }

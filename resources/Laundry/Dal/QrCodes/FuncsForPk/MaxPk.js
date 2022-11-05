@@ -1,13 +1,15 @@
+let CommonJsonFileName = "QrCodes.json";
+let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "QrCodes";
+
 let StartFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
     try {
-        let LocalJsonFileName = "QrCodes.json";
-
-        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-        let LocalKeys = Object.keys(LocalCustomersDataAsJson);
+        let LocalKeys = Object.keys(LocalCustomersDataAsJson[CommonItemName]);
 
         LocalReturnObject.KTF = true;
         LocalReturnObject.MaxPk = 0;

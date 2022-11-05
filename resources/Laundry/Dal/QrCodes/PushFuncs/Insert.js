@@ -1,3 +1,8 @@
+let CommonJsonFileName = "QrCodes.json";
+let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "QrCodes";
+
+
 let LocalGetDate = () => {
     let date = new Date();
 
@@ -15,14 +20,11 @@ let InsertFunc = async ({ inObjectToInsert }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
     try {
-
-        let LocalJsonFileName = "QrCodes.json";
-
-        let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${LocalJsonFileName}`);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-        let LocalNewData = { ...LocalCustomersDataAsJson, ...inObjectToInsert };
+        let LocalNewData = { ...(LocalCustomersDataAsJson[CommonItemName]), ...inObjectToInsert };
 
-        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/${LocalJsonFileName}`, JSON.stringify(LocalNewData));
+        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(CommonDataPath, JSON.stringify(LocalNewData));
         if (LocalFromWriteFile.success) {
             //   LocalReturnObject.KResult = `${max} saved successfully...`;
             LocalReturnObject.KTF = true;
