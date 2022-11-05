@@ -1,8 +1,8 @@
 import { DashBoardHtmlFunc } from "./HtmlFuncs/FromHbs.js";
 import { ShowAll as DalShowAll } from "./Dalfuncs.js";
 // import { ChangeClassFunc } from "../../../../CommonFuncs/Header";
-// import { AddlistenersFunc } from "./ListenerFuncs.js";
-// import { ToDOMBodyFromPK as FindBookingToDOMBodyFromPK } from "../../FindBooking/Js/FindBooking";
+import { AddlistenersFunc } from "./ListenerFuncs.js";
+import { ToDOMBodyFromPK as FindBookingToDOMBodyFromPK } from "../../FindBooking/Js/FindBooking.js";
 
 let DashBoardShow = async (inEvent) => {
     if ((inEvent === undefined) === false) {
@@ -26,7 +26,7 @@ let DashBoardShow = async (inEvent) => {
 
     document.getElementById("KCont1").innerHTML = jVarLocalHtml;
 
-    // AddlistenersFunc();
+    AddlistenersFunc();
     LocalSetFocusFunc();
 };
 
