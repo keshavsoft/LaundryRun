@@ -27,6 +27,8 @@ let ShowFunc = async () => {
         }
     );
 
+    LocalReturnObject.KTF = true;
+
     return await LocalReturnObject;
 };
 

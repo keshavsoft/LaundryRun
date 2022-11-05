@@ -10,4 +10,5 @@ let AddListenersFunc = () => {
 
 };
 
-AddListenersFunc();
+export { AddListenersFunc }
+//AddListenersFunc();
