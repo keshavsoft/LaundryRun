@@ -1,15 +1,18 @@
-let ShowFunc = async () => {
-    let LocalJsonFileName = "Bookings.json";
+let CommonJsonFileName = "Bookings.json";
+let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "Bookings";
 
+
+let ShowFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-    let ModalData = await Neutralino.filesystem.readFile(`./KData/JSON/TemplateData/${LocalJsonFileName}`);
+    let ModalData = await Neutralino.filesystem.readFile(CommonDataPath);
     let ModalDataAsJson = JSON.parse(ModalData);
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-    let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
+    let LocalCollectionData = Object.keys(LocalCustomersDataAsJson[CommonItemName]).map(key => ({ key, value: (LocalCustomersDataAsJson[CommonItemName])[key] }));
 
     LocalReturnObject.JsonData = LocalCollectionData;
     return await LocalReturnObject;
@@ -19,13 +22,11 @@ let ShowAllFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
     try {
-        let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
-
-        let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
+        
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-        let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
+        let LocalCollectionData = Object.keys(LocalCustomersDataAsJson[CommonItemName]).map(key => ({ key, value: (LocalCustomersDataAsJson[CommonItemName])[key] }));
 
         LocalReturnObject.JsonData = LocalCollectionData;
         LocalReturnObject.KTF = true;
@@ -42,14 +43,11 @@ let ShowTodayFunc = async () => {
 
     try {
 
-        let LocalJsonFileName = "Bookings.json";
-        let LocalFileName = `./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`;
+        let stats = await Neutralino.filesystem.getStats(CommonDataPath);
 
-        let stats = await Neutralino.filesystem.getStats(LocalFileName);
-
-        let LocalCustomersData = await Neutralino.filesystem.readFile(LocalFileName);
+        let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
         let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-        let LocalCollectionData = Object.keys(LocalCustomersDataAsJson).map(key => ({ key, value: LocalCustomersDataAsJson[key] }));
+        let LocalCollectionData = Object.keys(LocalCustomersDataAsJson[CommonItemName]).map(key => ({ key, value: (LocalCustomersDataAsJson[CommonItemName])[key] }));
 
         let LocalFilteredData = _.filter(LocalCollectionData, (LoopItem) => {
             if ("DateTime" in LoopItem.value) {
