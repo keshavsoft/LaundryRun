@@ -1,5 +1,5 @@
 import { FromPkForQrCodes } from "../../Bookings/PullFuncs/PickFuncs.js";
-
+import { StartFunc as OriginalStartFunc  } from "./Original.js";
 
 let CommonJsonFileName = "QrCodes.json";
 let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
@@ -19,14 +19,15 @@ let FromBookingPk = async ({ inBookingPK }) => {
 
         let LocalBookingGarmentsData = LocalBookingData.ForQrCode.GarmentDetails;
 
-        let LocalQrCodesData = await Neutralino.filesystem.readFile(CommonDataPath);
-        let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
-
-        let LocalQrCodesCollection = Object.entries(LocalQrCodesJsonData[CommonItemName]).map(
+        // let LocalQrCodesData = await Neutralino.filesystem.readFile(CommonDataPath);
+        // let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
+        let LocalOriginalData = await OriginalStartFunc();
+        let LocalQrCodesCollection = Object.entries(LocalOriginalData).map(
             ([key, value]) => {
                 return { ...value, QrCode: key }
             }
         );
+        console.log("LocalQrCodesCollection:", LocalQrCodesCollection);
 
         let LocalFiltered = LocalQrCodesCollection.filter(element => element.BookingRef === LocalBookingPk);
 
@@ -37,7 +38,7 @@ let FromBookingPk = async ({ inBookingPK }) => {
                 element.Amount = LocalBookingData.ForQrCode.Amount;
                 element.GarmentDetailsAsString = LocalBookingData.ForQrCode.GarmentDetailsAsString;
                 element.GarmentPcsTotal = LocalBookingData.ForQrCode.GarmentPcsTotal;
-                
+
                 element.GarmentsName = LocalBookingGarmentsData[element.GarmentsRef].Name;
                 element.GarmentsPcs = LocalBookingGarmentsData[element.GarmentsRef].Pcs;
             };
