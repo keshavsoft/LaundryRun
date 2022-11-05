@@ -47,14 +47,11 @@ let ToModal = async ({ inRowPK }) => {
 
 let AddListeners = () => {
     let jVarLocalQrCodeButtonClass = document.getElementsByClassName("QrCodeButtonClass");
-    console.log("jVarLocalQrCodeButtonClass : ", jVarLocalQrCodeButtonClass);
     for (var i = 0; i < jVarLocalQrCodeButtonClass.length; i++) {
         jVarLocalQrCodeButtonClass[i].addEventListener('click', async (inEvent) => {
             let jVarInsideCurrentTarget = inEvent.currentTarget;
             let jVarInsideClosestTr = jVarInsideCurrentTarget.closest("tr");
-            console.log("jVarInsideClosestTr...........:",jVarInsideClosestTr);
             let jVarInsideQrCodeValue = jVarInsideClosestTr.dataset.qrcode;
-            console.log("jVarInsideQrCodeValue---------:",jVarInsideQrCodeValue);
             ToModal({ inRowPK: jVarInsideQrCodeValue });
         });
     };

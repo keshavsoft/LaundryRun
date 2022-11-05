@@ -3,17 +3,20 @@ import { StartFunc as FuncsForPkStartFunc } from "../FuncsForPk/Start.js";
 import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/WithBookingData.js";
 import { StartFunc as CompletedStartFunc } from "../../Completed/PullFuncs/Original.js";
 
-let FromPk = async ({ inRowPK }) => {
-    let LocalJsonFileName = "Bookings.json";
 
+let CommonJsonFileName = "Bookings.json";
+let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+let CommonItemName = "Bookings";
+
+let FromPk = async ({ inRowPK }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${LocalJsonFileName}`);
+    let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-    if (inRowPK in LocalCustomersDataAsJson) {
+    if (inRowPK in (LocalCustomersDataAsJson[CommonItemName])) {
         LocalReturnObject.KTF = true;
-        LocalReturnObject.KResult = LocalCustomersDataAsJson[inRowPK];
+        LocalReturnObject.KResult = (LocalCustomersDataAsJson[CommonItemName])[inRowPK];
         LocalReturnObject.KResult = { ...LocalReturnObject.KResult, OrderNo: inRowPK };
     };
 
