@@ -1,4 +1,4 @@
-import { StartFunc as OriginalFuncs } from "./Original";
+import { StartFunc as OriginalFuncs } from "./Original.js";
 
 let StartFunc = async ({ inQrCode }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
