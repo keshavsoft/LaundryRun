@@ -2,21 +2,26 @@ import { StartFunc as FuncsForPkStartFunc } from "../FuncsForPk/Start.js";
 //import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/Original";
 import { StartFunc as QrCodesStartFunc } from "../../QrCodes/PullFuncs/WithBookingData.js";
 import { StartFunc as CompletedStartFunc } from "../../Completed/PullFuncs/Original.js";
+import { StartFunc as OriginalStartFunc } from "./Original.js";
 
-
-let CommonJsonFileName = "Bookings.json";
-let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
-let CommonItemName = "Bookings";
+// let CommonJsonFileName = "Bookings.json";
+// let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
+// let CommonItemName = "Bookings";
 
 let FromPk = async ({ inRowPK }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
-    let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
+    // let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
+    // let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
+    let LocalOriginalData = await OriginalStartFunc();
+    if (LocalOriginalData.KTF === false) {
+        LocalReturnObject.KReason = LocalOriginalData.KReason;
+        return await LocalReturnObject;
+    };
 
-    if (inRowPK in (LocalCustomersDataAsJson[CommonItemName])) {
+    if (inRowPK in LocalOriginalData.JsonData) {
         LocalReturnObject.KTF = true;
-        LocalReturnObject.KResult = (LocalCustomersDataAsJson[CommonItemName])[inRowPK];
+        LocalReturnObject.KResult = LocalOriginalData.JsonData[inRowPK];
         LocalReturnObject.KResult = { ...LocalReturnObject.KResult, OrderNo: inRowPK };
     };
 
@@ -31,7 +36,6 @@ let FromPkForQrCodes = async ({ inRowPK }) => {
         LocalReturnObject.KReason = LocalFromOriginalData.KReason;
         return await LocalReturnObject;
     };
-
     LocalReturnObject.KTF = true;
     LocalReturnObject.ForQrCode = LocalFromOriginalData.KResult;
 
@@ -46,7 +50,7 @@ let FromPkForQrCodes = async ({ inRowPK }) => {
     LocalReturnObject.ForQrCode.GarmentDetailsAsString = LocalGarmentsArray.toString();
     LocalReturnObject.ForQrCode.GarmentPcsTotal = LocalGarmentsPcsArray.reduce((a, b) => a + b, 0);
 
-    console.log("LocalGarmentsPcsArray.ForQrCode : ", LocalGarmentsPcsArray);
+    // console.log("LocalGarmentsPcsArray.ForQrCode : ", LocalGarmentsPcsArray);
     return await LocalReturnObject;
 };
 
