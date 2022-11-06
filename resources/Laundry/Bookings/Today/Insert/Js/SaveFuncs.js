@@ -1,4 +1,4 @@
-// import { BookingInsertSuccessFunc } from "./HtmlFuns/FromHbs.js";
+import { BookingInsertSuccessFunc } from "./HtmlFuns/FromHbs.js";
 // import { ToModal } from "../../QrCode/Js/QrCodeToModal.js";
 import { StartFunc as PushFuncsStartFunc } from "../../../../Dal/Bookings/PushFuncs/SaveFunc.js";
 

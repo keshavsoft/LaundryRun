@@ -14,12 +14,6 @@ let GarmentsInsertFunc = async (inEvent) => {
     jVarLocalKCont1.innerHTML = jVarLocalFromHbs;
 
     LocalFuncAddListeners();
-    LocalSetFocusFunc();
-};
-
-let LocalSetFocusFunc = () => {
-    let jVarLocalCustomerName = document.getElementById("GarmentName");
-    jVarLocalCustomerName.focus();
 };
 
 let LocalFuncAddListeners = () => {
