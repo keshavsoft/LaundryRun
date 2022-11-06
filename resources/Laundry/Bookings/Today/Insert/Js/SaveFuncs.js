@@ -1,6 +1,7 @@
 import { BookingInsertSuccessFunc } from "./HtmlFuns/FromHbs.js";
 // import { ToModal } from "../../QrCode/Js/QrCodeToModal.js";
 import { StartFunc as PushFuncsStartFunc } from "../../../../Dal/Bookings/PushFuncs/SaveFunc.js";
+import { GarmentsValidateFunc, FormVerticalValidate } from "./ValidityFuncs.js";
 
 let CommonGarmentDetailsKeyName = "GarmentDetails";
 
@@ -12,51 +13,17 @@ let jFCheckBeforeSave = async () => {
     let jVarLocalTotalGarmnetsPcs = TotalGarmentsPcsFunc();
     jVarLocalGarmentsTotalPcs.value = jVarLocalTotalGarmnetsPcs;
 
-    let jvarLocalFromjFFormVerticalValidate = await jFFormVerticalValidate();
+    let jvarLocalFromjFFormVerticalValidate = await FormVerticalValidate();
 
     if (jvarLocalFromjFFormVerticalValidate.KTF === false) {
         jVarLocalReturnObject.KReason = jvarLocalFromjFFormVerticalValidate.KReason;
         return await jVarLocalReturnObject;
     };
 
-    let jvarLocaljFFormForGarmentsValidate = await jFFormForGarmentsValidate();
+    let jvarLocaljFFormForGarmentsValidate = await GarmentsValidateFunc();
 
     if (jvarLocaljFFormForGarmentsValidate.KTF === false) {
         jVarLocalReturnObject.KReason = jvarLocaljFFormForGarmentsValidate.KReason;
-        return await jVarLocalReturnObject;
-    };
-
-    jVarLocalReturnObject.KTF = true;
-    return await jVarLocalReturnObject;
-
-};
-
-let jFFormVerticalValidate = async () => {
-    let jVarLocalReturnObject = { KTF: false, KResult: {} };
-
-    let jVarLocalFormVertical = document.getElementById("FormVertical");
-
-    jVarLocalFormVertical.classList.add('was-validated');
-
-    if (jVarLocalFormVertical.checkValidity() === false) {
-        jVarLocalReturnObject.KReason = "Form not validated!";
-        return await jVarLocalReturnObject;
-    };
-
-    jVarLocalReturnObject.KTF = true;
-    return await jVarLocalReturnObject;
-
-};
-
-let jFFormForGarmentsValidate = async () => {
-    let jVarLocalReturnObject = { KTF: false, KResult: {} };
-
-    let jVarLocalFormForGarments = document.getElementById("FormForGarments");
-
-    jVarLocalFormForGarments.classList.add('was-validated');
-
-    if (jVarLocalFormForGarments.checkValidity() === false) {
-        jVarLocalReturnObject.KReason = "Form not validated!";
         return await jVarLocalReturnObject;
     };
 
