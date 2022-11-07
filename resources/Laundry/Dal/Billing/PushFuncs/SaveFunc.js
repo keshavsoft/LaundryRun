@@ -1,5 +1,5 @@
-import { StartFunc as QrCodesCheckQrCode } from "../../QrCodes/PullFuncs/CheckQrCode";
-import { StartFunc as DalQrCodesAndCompleted } from "../../Bookings/PullFuncs/QrCodesAndCompleted";
+import { StartFunc as QrCodesCheckQrCode } from "../../QrCodes/PullFuncs/CheckQrCode.js";
+import { StartFunc as DalQrCodesAndCompleted } from "../../Bookings/PullFuncs/QrCodesAndCompleted.js";
 
 let CommonFileName = "Billing.json";
 
@@ -14,14 +14,14 @@ let InsertFunc = async ({ inQrCode }) => {
             return await LocalReturnObject;
         };
 
-        let LocalData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${CommonFileName}`);
+        let LocalData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${CommonFileName}`);
         let LocalDataAsJson = JSON.parse(LocalData);
 
         LocalDataAsJson[inQrCode] = {
             DateTime: LocalGetDate()
         };
 
-        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/${CommonFileName}`, JSON.stringify(LocalDataAsJson));
+        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(`./KData/JSON/2017/Data/Transactions/${CommonFileName}`, JSON.stringify(LocalDataAsJson));
 
         if (LocalFromWriteFile.success) {
             LocalReturnObject.KResult = `${inQrCode} saved successfully...`;
@@ -40,7 +40,7 @@ let LocalCheckBeforeSave = async ({ inQrCode }) => {
     let LocalReturnObject = { KTF: false, KResult: "" };
 
     try {
-        let LocalData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/${CommonFileName}`);
+        let LocalData = await Neutralino.filesystem.readFile(`./KData/JSON/2017/Data/Transactions/${CommonFileName}`);
         let LocalDataAsJson = JSON.parse(LocalData);
 
         if (inQrCode in LocalDataAsJson) {

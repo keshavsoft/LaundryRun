@@ -1,0 +1,26 @@
+{{log "lllllll" this}}
+
+{{OrderNo}}</br>
+{{CustomerName}}</br>
+{{Mobile}}</br>
+{{Amount}}</br>
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Garment</th>
+            <th>Pcs</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each GarmentDetails}}
+        {{log "loop" this}}
+        <tr>
+          <td>{{Name}}</td>
+          <td>{{Pcs}}</td>
+        </tr>
+        {{/each}}
+
+    </tbody>
+</table>
