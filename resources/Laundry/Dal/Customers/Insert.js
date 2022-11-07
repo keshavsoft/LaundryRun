@@ -12,7 +12,7 @@ let UniqueFunc = async ({ inObjectToInsert = {} }) => {
     let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
     let LocalValueToCheck = _.get(inObjectToInsert, UniqueColumnsDataAsJson.ColumnName);
-    
+
     let LocalDataNeeded = _.map(Object.values(LocalCustomersDataAsJson.CustomerNames), UniqueColumnsDataAsJson.ColumnName);
 
     if (LocalDataNeeded.includes(LocalValueToCheck)) {
@@ -47,7 +47,7 @@ let InsertFunc = async ({ inDataToSave = {} }) => {
     let LocalKeys = Object.keys(LocalCustomersDataAsJson.CustomerNames);
     let max = 1;
     let LocalFromUnique = await UniqueFunc({ inObjectToInsert });
-    
+
     if (LocalFromUnique.KTF) {
         LocalReturnObject.KReason = LocalFromUnique.KReason;
 
@@ -63,7 +63,6 @@ let InsertFunc = async ({ inDataToSave = {} }) => {
     let LocalNewData = _.pick(inObjectToInsert, Object.keys(ModalDataAsJson));
     LocalCustomersDataAsJson.CustomerNames[max] = LocalNewData;
 
-    //F    LocalCustomersDataAsJson.CustomerNames[max] = inObjectToInsert;
 
     let LocalFromWriteFile = await Neutralino.filesystem.writeFile('./KData/JSON/2017/Data/Masters/Customers.json', JSON.stringify(LocalCustomersDataAsJson));
 

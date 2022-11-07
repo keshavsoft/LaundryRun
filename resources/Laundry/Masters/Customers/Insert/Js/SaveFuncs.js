@@ -18,10 +18,11 @@ let CustomersSaveFunc = async (event) => {
     if (jVarLocalFromInsert.KTF === false) {
         let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
 
-        console.log("jVarClosestCard : ", jVarClosestCard, jVarClosestCard.classList.add("border-danger"));
-
+        jVarClosestCard.classList.add("border-danger");
+        return await "";
     };
 
+    window.location.href = "../Show/Show.html";
     // await LocalPostSaveFunc({ inFromSave: jVarLocalFromInsert });
 };
 
