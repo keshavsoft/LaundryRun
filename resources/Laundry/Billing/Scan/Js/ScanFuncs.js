@@ -1,4 +1,4 @@
-import { BillingScanHtmlFunc } from "../../Scan/Js/HtmlFuncs/FromHbs.js";
+// import { BillingScanHtmlFunc } from "../../Scan/Js/HtmlFuncs/FromHbs.js";
 // import { ChangeClassFunc } from "../../../CommonFuncs/Header";
 import { InsertFunc as DalSaveFunc } from "../../../Dal/Billing/PushFuncs/SaveFunc.js";
 
@@ -43,9 +43,9 @@ let BillingScanHeaderId = async (inEvent) => {
         ChangeClassFunc({ inHtmlControl: jVarLocalCurrentTarget });
     };
 
-    let jVarInsideTemplate = await BillingScanHtmlFunc();
-    let jVarLocalKCont1 = document.getElementById("KCont1");
-    jVarLocalKCont1.innerHTML = jVarInsideTemplate;
+    // let jVarInsideTemplate = await BillingScanHtmlFunc();
+    // let jVarLocalKCont1 = document.getElementById("KCont1");
+    // jVarLocalKCont1.innerHTML = jVarInsideTemplate;
     LocalSetFocusFunc();
     LocalAddListeners();
 };
@@ -77,7 +77,7 @@ let LocalGoClick = async () => {
     let jVarLocalQrCode = LocalPullQrCodeFromScan({ InScanData: jVarLocalScanId.value });
 
     let jVarLocalFromInsert = await DalSaveFunc({ inQrCode: jVarLocalQrCode });
-    console.log("sssssssssssss : ", jVarLocalFromInsert);
+    // console.log("sssssssssssss : ", jVarLocalFromInsert);
     if (jVarLocalFromInsert.KTF === false) {
         jVarLocalDangerAlertId.classList.remove("d-none");
         jVarLocalDangerAlertId.innerHTML = jVarLocalFromInsert.KReason;

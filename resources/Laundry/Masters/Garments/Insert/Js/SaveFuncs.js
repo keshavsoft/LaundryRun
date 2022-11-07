@@ -42,5 +42,4 @@ let jFGarmentsDetails = () => {
     return jVarLocalReturnObject;
 };
 
-
 export { GarmentsSaveFunc };

@@ -10,7 +10,7 @@ let ShowAll = async () => {
 
     Object.entries(LocalDataFromJson.JsonData).forEach(
         ([key, value]) => {
-            console.log("value : ", value);
+            // console.log("value : ", value);
             LocalReturnObject.JsonData[key] = {
                 SNo: LocalSNo,
                 OrderNo: key,

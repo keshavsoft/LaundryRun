@@ -23,7 +23,7 @@ let LocalTableButtonFunc = async (event) => {
 
 let LocalTableBillButtonFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;
-    console.log("lllllllllllllll", jVarLocalCurrentTarget.dataset);
+    // console.log("lllllllllllllll", jVarLocalCurrentTarget.dataset);
     await BillingToModal({ inBookingPK: jVarLocalCurrentTarget.dataset.billno });
 };
 
