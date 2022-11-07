@@ -1,4 +1,4 @@
-import { ScanHtmlFunc } from "../../../Completed/Scan/Js/HtmlFuncs/FromHbs.js";
+// import { ScanHtmlFunc } from "../../../Completed/Scan/Js/HtmlFuncs/FromHbs.js";
 // import { InsertFunc } from "../../../../Dal/Completed/ScanFuncs";
 import { InsertFunc as DalSaveFunc } from "../../../Dal/Completed/PushFuncs/SaveFunc.js";
 import { AddListeners } from "./ListenersFuncs.js";
@@ -44,9 +44,9 @@ let ScanHeaderId = async (inEvent) => {
         ChangeClassFunc({ inHtmlControl: jVarLocalCurrentTarget });
     };
 
-    let jVarInsideTemplate = await ScanHtmlFunc();
-    let jVarLocalKCont1 = document.getElementById("KCont1");
-    jVarLocalKCont1.innerHTML = jVarInsideTemplate;
+    // let jVarInsideTemplate = await ScanHtmlFunc();
+    // let jVarLocalKCont1 = document.getElementById("KCont1");
+    // jVarLocalKCont1.innerHTML = jVarInsideTemplate;
     LocalSetFocusFunc();
     AddListeners();
 };

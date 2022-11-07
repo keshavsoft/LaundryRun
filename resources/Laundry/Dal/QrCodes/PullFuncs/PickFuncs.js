@@ -20,7 +20,7 @@ let FromBookingPk = async ({ inBookingPK }) => {
         let LocalBookingGarmentsData = LocalBookingData.ForQrCode.GarmentDetails;
 
         let LocalOriginalData = await OriginalStartFunc();
-        console.log("LocalOriginalData:", LocalOriginalData);
+        // console.log("LocalOriginalData:", LocalOriginalData);
         if (LocalOriginalData.KTF === false) {
             LocalReturnObject.KReason = LocalOriginalData.KReason;
             return await LocalReturnObject;
@@ -31,9 +31,9 @@ let FromBookingPk = async ({ inBookingPK }) => {
                 return { ...value, QrCode: key }
             }
         );
-        console.log("LocalQrCodesCollection:", LocalQrCodesCollection, LocalBookingPk);
+        // console.log("LocalQrCodesCollection:", LocalQrCodesCollection, LocalBookingPk);
         let LocalFiltered = LocalQrCodesCollection.filter(element => element.BookingRef === LocalBookingPk);
-        console.log("LocalFiltered:", LocalFiltered);
+        // console.log("LocalFiltered:", LocalFiltered);
         let LocalDataNeeded = LocalFiltered.map(element => {
             if (element.GarmentsRef in LocalBookingGarmentsData) {
                 element.CustomerName = LocalBookingData.ForQrCode.CustomerName;
@@ -48,14 +48,14 @@ let FromBookingPk = async ({ inBookingPK }) => {
             element.CanvasId = `Canvas${element.QrCode}`
             return element;
         });
-        console.log("LocalDataNeeded:", LocalDataNeeded);
+        // console.log("LocalDataNeeded:", LocalDataNeeded);
         LocalReturnObject.KResult = LocalDataNeeded;
         LocalReturnObject.KTF = true;
 
     } catch (error) {
         console.log(error);
     };
-    console.log("LocalReturnObject:", LocalReturnObject);
+    // console.log("LocalReturnObject:", LocalReturnObject);
     return await LocalReturnObject;
 };
 

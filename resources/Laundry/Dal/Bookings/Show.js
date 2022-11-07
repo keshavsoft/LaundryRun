@@ -54,7 +54,6 @@ let ShowTodayFunc = async () => {
                 return LoopItem.value.DateTime.substring(0, 10) === LocalGetDateOnly();
             };
         });
-        console.log("LocalFilteredData:--",LocalFilteredData);
 
         LocalReturnObject.JsonData = LocalFilteredData;
 

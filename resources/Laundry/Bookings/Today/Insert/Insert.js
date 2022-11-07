@@ -11,7 +11,5 @@ if (jVarLocalFromCustomersShowFunc.KTF) {
             return `${LoopItem.Mobile} : ${LoopItem.CustomerName}`;
         }
     );
-
-    console.log("jVarLocalCustomersArray : ", jVarLocalCustomersArray);
 };
 
