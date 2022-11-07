@@ -1,5 +1,5 @@
-import { StartFunc as OriginalStartFunc } from "./Original";
-import { StartFunc as BookingsData } from "../../Bookings/PullFuncs/Original";
+import { StartFunc as OriginalStartFunc } from "./Original.js";
+import { StartFunc as BookingsData } from "../../Bookings/PullFuncs/Original.js";
 
 let StartFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

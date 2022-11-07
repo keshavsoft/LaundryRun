@@ -1,5 +1,5 @@
-import { StartFunc as QrCodesAsObject } from "./QrCodesAsObject";
-import { StartFunc as CompletedOriginal } from "../../Completed/PullFuncs/Original";
+import { StartFunc as QrCodesAsObject } from "./QrCodesAsObject.js";
+import { StartFunc as CompletedOriginal } from "../../Completed/PullFuncs/Original.js";
 
 let StartFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

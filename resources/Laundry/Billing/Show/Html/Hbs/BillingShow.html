@@ -1,0 +1,73 @@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col">All Billing QrCodes</div>
+            <div class="col"><input id="SearchQrCodeTable" class="form-control" type="search" placeholder="Search"
+                    onkeypress="jFSearchInputKeyPress(event)" aria-label="Search" autocomplete="off"></div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" id="myTable">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Mobile</th>
+                        <th scope="col">OrderNo</th>
+                        <th scope="col">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="KTableBody">
+                    {{#each this}}
+                    <tr>
+                        <td>{{SNo}}</td>
+                        <td>{{CustomerName}}</td>
+                        <td>{{Mobile}}</td>
+                        <td>{{OrderNo}}</td>
+                        <td>{{Amount}}</td>
+
+                        <td>{{key}}</td>
+                        <td style="text-align:right"><button type="button" data-qrcode="{{key}}"
+                                class="btn btn-primary QrCodeButtonClass">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-qr-code" viewBox="0 0 16 16">
+                                    <path d="M2 2h2v2H2V2Z" />
+                                    <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z" />
+                                    <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z" />
+                                    <path
+                                        d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z" />
+                                    <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z" />
+                                </svg>
+                            </button></td>
+                    </tr>
+                    {{/each}}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+
+        Footer
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ModalForBillShow" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">QrCodes</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="ModalBody">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="printJS('ModalBody', 'html')">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
