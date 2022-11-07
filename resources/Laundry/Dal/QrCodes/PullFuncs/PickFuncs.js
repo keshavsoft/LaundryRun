@@ -19,8 +19,6 @@ let FromBookingPk = async ({ inBookingPK }) => {
 
         let LocalBookingGarmentsData = LocalBookingData.ForQrCode.GarmentDetails;
 
-        // let LocalQrCodesData = await Neutralino.filesystem.readFile(CommonDataPath);
-        // let LocalQrCodesJsonData = JSON.parse(LocalQrCodesData);
         let LocalOriginalData = await OriginalStartFunc();
         console.log("LocalOriginalData:", LocalOriginalData);
         if (LocalOriginalData.KTF === false) {

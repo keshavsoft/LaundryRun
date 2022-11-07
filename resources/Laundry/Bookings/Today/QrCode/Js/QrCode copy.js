@@ -18,7 +18,7 @@ let QrcodeShowAll = async (inEvent) => {
     if (jVarLocalDataNeeded.KTF === false) {
 
     };
-
+    
     let jVarLocalHtml = template(jVarLocalDataNeeded.JsonData);
 
     document.getElementById("KCont1").innerHTML = jVarLocalHtml;
@@ -33,4 +33,4 @@ let LocalSetFocusFunc = () => {
     jVarLocalCustomerName.focus();
 };
 
-export { QrcodeShowAll };
+QrcodeShowAll().then();

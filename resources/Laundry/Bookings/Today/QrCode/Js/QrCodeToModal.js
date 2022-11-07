@@ -2,7 +2,6 @@ import { QrCodeModalPopUp } from "../Js/HtmlFuncs/FromHbs.js";
 import { FromBookingPk } from "../../../../Dal/QrCodes/PullFuncs/PickFuncs.js";
 
 let ToModal = async ({ inRowPK }) => {
-    //  let jVarLocalDataNeeded = await PickFuncForQrCode({ inRowPK });
     let jVarLocalDataNeeded = await FromBookingPk({ inBookingPK: inRowPK });
     try {
         if (jVarLocalDataNeeded.KTF) {
@@ -47,6 +46,7 @@ let ToModal = async ({ inRowPK }) => {
 
 let AddListeners = () => {
     let jVarLocalQrCodeButtonClass = document.getElementsByClassName("QrCodeButtonClass");
+   
     for (var i = 0; i < jVarLocalQrCodeButtonClass.length; i++) {
         jVarLocalQrCodeButtonClass[i].addEventListener('click', async (inEvent) => {
             let jVarInsideCurrentTarget = inEvent.currentTarget;

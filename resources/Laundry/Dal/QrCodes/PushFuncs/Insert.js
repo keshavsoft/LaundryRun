@@ -1,7 +1,7 @@
 let CommonJsonFileName = "QrCodes.json";
 let CommonDataPath = `./KData/JSON/2017/Data/Transactions/${CommonJsonFileName}`;
 let CommonItemName = "QrCodes";
-
+import { FullJsonData } from "../PullFuncs/Original.js";
 
 let LocalGetDate = () => {
     let date = new Date();
@@ -21,10 +21,25 @@ let InsertFunc = async ({ inObjectToInsert }) => {
 
     try {
         let LocalCustomersData = await Neutralino.filesystem.readFile(CommonDataPath);
-        let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-        let LocalNewData = { ...(LocalCustomersDataAsJson[CommonItemName]), ...inObjectToInsert };
+        //  let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
 
-        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(CommonDataPath, JSON.stringify(LocalNewData));
+        let LocalCustomersDataAsJson = await FullJsonData();
+
+        if (LocalCustomersDataAsJson.KTF === false) {
+            LocalReturnObject.KReason = LocalCustomersDataAsJson.KReason;
+            return await LocalReturnObject;
+        };
+
+        // let LocalNewData = {};
+        // LocalNewData[CommonItemName] = {};
+
+        //let LocalNewData = { ...(LocalCustomersDataAsJson[CommonItemName]), ...inObjectToInsert };
+
+        //let LocalNewData = { ...(LocalCustomersDataAsJson[CommonItemName]), ...inObjectToInsert };
+        LocalCustomersDataAsJson.JsonData[CommonItemName] = { ...(LocalCustomersDataAsJson.JsonData[CommonItemName]), ...inObjectToInsert };
+
+        let LocalFromWriteFile = await Neutralino.filesystem.writeFile(CommonDataPath, JSON.stringify(LocalCustomersDataAsJson.JsonData));
+
         if (LocalFromWriteFile.success) {
             //   LocalReturnObject.KResult = `${max} saved successfully...`;
             LocalReturnObject.KTF = true;
