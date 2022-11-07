@@ -4,7 +4,7 @@
   "defaultMode": "window",
   "port": 0,
   "documentRoot": "/resources/",
-  "url": "/Laundry/Start.html",
+  "url": "/Laundry/Bookings/Today/CustomerSearch/CustomerSearch.html",
   "enableServer": true,
   "enableNativeAPI": true,
   "tokenSecurity": "one-time",
