@@ -4,9 +4,8 @@ var path = require('path');
 const posthtml = require('posthtml')
 const include = require('posthtml-include')
 
-let LocalFolderPath = "src//Laundry";
+let LocalFolderPath = "src\\Laundry";
 let LocalDestinationPath = "public";
-//let LocalDestinationPath = "C:\\KeshavSoft\\nodejs\\multi\\2022\\oct\\8\\KJson\\public\\JSONApi\\Html"
 
 var walk = function (dir, done) {
     var results = [];
@@ -41,9 +40,12 @@ walk(LocalFolderPath, function (err, results) {
         posthtml([include({ encoding: 'utf8' })])
             .process(html)
             .then((result) => {
+                //console.log("result : ", result);
                 if (fs.existsSync(element.replace(LocalFolderPath, LocalDestinationPath)) === false) {
                     fs.createFileSync(element.replace(LocalFolderPath, LocalDestinationPath));
                 };
+
+              //  console.log("result : ", LocalFolderPath, LocalDestinationPath, element.replace(LocalFolderPath, LocalDestinationPath));
 
                 fs.writeFileSync(element.replace(LocalFolderPath, LocalDestinationPath), result.html);
                 //  fs.writeFileSync(element.replace(LocalFolderPath, LocalDestinationPath), result.html);
