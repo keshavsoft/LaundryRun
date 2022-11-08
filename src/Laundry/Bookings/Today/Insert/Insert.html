@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Booking Customers Barcode</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+		integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="/Laundry/css/bootstrap.min.css">
+    <!-- 
+	<script type="text/javascript" src="/js/bwip-js-min.js"></script>
+ -->
+    <!-- <link rel="stylesheet" href="https://printjs-4de6.kxcdn.com/print.min.css"> -->
+    <!-- <link rel="stylesheet" href="/css/print.min.css"> -->
+
+    <link rel="stylesheet" href="/Laundry/css/header.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Today</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarsExample06" aria-controls="navbarsExample06" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarsExample06">
+                    <ul class="navbar-nav me-auto mb-2 mb-xl-0" id="KHeader">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../../Bookings.html" id="BookingHomeId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8V1z"></path>
+                                    <path
+                                        d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z">
+                                    </path>
+                                    <path
+                                        d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z">
+                                    </path>
+                                </svg>
+                                Bookings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-info" href="#" id="BookingHeaderInsertId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                    <path fill-rule="evenodd"
+                                        d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                                </svg>
+                                Insert
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="../Show/Show.html" id="BookingHeaderTodayId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 10h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1zm9-9h3a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zm0 9a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1h-3zm0-10a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-3zM2 9a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H2zm7 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3a2 2 0 0 1-2-2v-3zM0 2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm5.354.854a.5.5 0 1 0-.708-.708L3 3.793l-.646-.647a.5.5 0 1 0-.708.708l1 1a.5.5 0 0 0 .708 0l2-2z" />
+                                </svg>
+                                Show
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../ShowAll/ShowAll.html" id="BookingHeaderShowAllId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M13.81 3H9.828a2 2 0 0 1-1.414-.586l-.828-.828A2 2 0 0 0 6.172 1H2.5a2 2 0 0 0-2 2l.04.87a1.99 1.99 0 0 0-.342 1.311l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3zM2.19 3c-.24 0-.47.042-.683.12L1.5 2.98a1 1 0 0 1 1-.98h3.672a1 1 0 0 1 .707.293L7.586 3H2.19zm9.608 5.271-3.182 1.97c-.27.166-.616-.036-.616-.372V9.1s-2.571-.3-4 2.4c.571-4.8 3.143-4.8 4-4.8v-.769c0-.336.346-.538.616-.371l3.182 1.969c.27.166.27.576 0 .742z" />
+                                </svg>
+                                Show All
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../QrCode/QrCode.html" id="BookingHeaderQrCodeId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path d="M2 2h2v2H2V2Z" />
+                                    <path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z" />
+                                    <path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z" />
+                                    <path
+                                        d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z" />
+                                    <path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z" />
+                                </svg>
+                                QrCode
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../LastBooking/LastBookingHeader.html" id="LastBookingHeaderId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1h-2z" />
+                                    <path fill-rule="evenodd"
+                                        d="M7.646 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V5.5a.5.5 0 0 0-1 0v8.793l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z" />
+                                </svg>
+                                Last Booking
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../FindBooking/FindBookingHeader.html" id="FindBookingHeaderId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path d="M10 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                    <path
+                                        d="M2 1a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H2ZM1 3a1 1 0 0 1 1-1h2v2H1V3Zm4 10V2h9a1 1 0 0 1 1 1v9c0 .285-.12.543-.31.725C14.15 11.494 12.822 10 10 10c-3.037 0-4.345 1.73-4.798 3H5Zm-4-2h3v2H2a1 1 0 0 1-1-1v-1Zm3-1H1V8h3v2Zm0-3H1V5h3v2Z" />
+                                </svg>
+                                Find Booking
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../DashBoard/DashBoardHeader.html" id="DashBoardHeaderId">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                                    class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+                                    <path fill-rule="evenodd"
+                                        d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+                                </svg>
+                                Dash Board
+                            </a>
+                        </li>
+                    </ul>
+                    <form role="search">
+                        <input id="MainHeaderSearchId" class="form-control" type="search" placeholder="Search"
+                            aria-label="Search">
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container d-none" id="ShowOfflineSpinnerId">
+        <div class="alert alert-danger mt-3 mb-3" role="alert" id="AlertDangerId">
+            A simple danger alert—check it out!
+        </div>
+
+        <div class="spinner-grow" role="status">
+            <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" fill="currentColor" class="bi bi-wifi-off"
+                viewBox="0 0 16 16">
+                <path
+                    d="M10.706 3.294A12.545 12.545 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.518.518 0 0 0 .668.05A11.448 11.448 0 0 1 8 4c.63 0 1.249.05 1.852.148l.854-.854zM8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065 8.448 8.448 0 0 1 3.51-1.27L8 6zm2.596 1.404.785-.785c.63.24 1.227.545 1.785.907a.482.482 0 0 1 .063.745.525.525 0 0 1-.652.065 8.462 8.462 0 0 0-1.98-.932zM8 10l.933-.933a6.455 6.455 0 0 1 2.013.637c.285.145.326.524.1.75l-.015.015a.532.532 0 0 1-.611.09A5.478 5.478 0 0 0 8 10zm4.905-4.905.747-.747c.59.3 1.153.645 1.685 1.03a.485.485 0 0 1 .047.737.518.518 0 0 1-.668.05 11.493 11.493 0 0 0-1.811-1.07zM9.02 11.78c.238.14.236.464.04.66l-.707.706a.5.5 0 0 1-.707 0l-.707-.707c-.195-.195-.197-.518.04-.66A1.99 1.99 0 0 1 8 11.5c.374 0 .723.102 1.021.28zm4.355-9.905a.53.53 0 0 1 .75.75l-10.75 10.75a.53.53 0 0 1-.75-.75l10.75-10.75z" />
+            </svg>
+        </div>
+
+    </div>
+
+    <main>
+        <div class="container" id="KCont1">
+
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <form id="FormVertical" onsubmit="return false;">
+                                <div class="mb-3 position-relative">
+                                    <label class="col-form-label fs-2">Customer Name</label>
+                                    <div class="col">
+                                        <input type="text" class="form-control fs-2" name="CustomerName" 
+                                            id="CustomerName" aria-describedby="emailHelp" required="" autofocus>
+                                        <div class="invalid-tooltip">
+                                            Please Enter Customer Name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label for="Mobile" class="col-md-6 col-form-label fs-2">Mobile</label>
+                                    <input type="number" class="form-control fs-2" name="Mobile" id="Mobile" 
+                                        pattern="[6789][0-9]{9}" required>
+
+                                    <div class="invalid-tooltip">
+                                        Please Enter Mobile Number.
+                                    </div>
+                                </div>
+                                <div class="mb-3 position-relative">
+                                    <label class="col-form-label fs-2">GarmentsTotalPcs</label>
+                                    <div class="col">
+                                        <input type="number" class="form-control fs-2" id="GarmentsTotalPcs"
+                                            aria-describedby="emailHelp" required>
+                                        <div class="invalid-tooltip">
+                                            Please Enter Total Garments.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="col-md-6 col-form-label fs-2">Weight</label>
+                                        <div class="col">
+                                            <input type="number" class="form-control fs-2" name="Weight" id="Weight"
+                                                aria-describedby="emailHelp">
+                                            <div class="invalid-feedback">
+                                                Should not be empty!
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="col-form-label fs-2">Amount</label>
+                                        <div class="col-12">
+                                            <input type="number" class="form-control fs-2" name="Amount" id="Amount"
+                                                aria-describedby="emailHelp" min="0">
+                                            <div class="invalid-feedback">
+                                                Should not be empty!
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            <button class="btn btn-success fs-3" id="BookingSaveButtonId">Save</button>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <div class="row">
+                                    <div class="col-1 fs-2">#</div>
+                                    <div class="col-8 fs-2">Garments</div>
+                                    <div class="col-3 fs-2">Pcs</div>
+                                </div>
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <form id="FormForGarments" onsubmit="return false;">
+                                <div class="row">
+                                    <div class="col-1 fs-2">1</div>
+                                    <div class="col-8">
+                                        <div class="mb-3 position-relative">
+                                            <input type="text" class="form-control fs-2" id="Garments1"
+                                                aria-describedby="helpId" placeholder="" required>
+                                            <div class="invalid-tooltip">
+                                                Please Enter Garment Name.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <div class="mb-3 position-relative">
+                                            <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs1"
+                                                aria-describedby="helpId" placeholder="" required>
+                                            <div class="invalid-tooltip">
+                                                Please Enter No Of Pieces.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">2</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments2"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs2"
+                                            aria-describedby="helpId" placeholder="">
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-1 fs-2">3</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments3"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs3"
+                                            aria-describedby="helpId" placeholder="">
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">4</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments4"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-3">
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs4"
+                                            aria-describedby="helpId" placeholder="">
+                                    </div>
+
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">5</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments5"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs5"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">6</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments6"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs6"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">7</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments7"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs7"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">8</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments8"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs8"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">9</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments9"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs9"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-1 fs-2">10</div>
+                                    <div class="col-8">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control fs-2" id="Garments10"
+                                                aria-describedby="helpId" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-3">
+
+                                        <input type="number" min="1" max="99" class="form-control fs-2" id="Pcs10"
+                                            aria-describedby="helpId" placeholder="">
+
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="ModalForQrCode" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">QrCodes</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="ModalBody">
+
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"
+                                onclick="printJS('ModalBody', 'html')">Print</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="AlertWarningId" class="alert alert-warning alert-dismissible fade show" role="alert" style="display:none;">
+        <div id="AlertWarningMessageId"><strong>Sorry!</strong> Data not saved</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <footer class="footer mt-auto py-2 bg-light fixed-bottom">
+        <div class="container">
+            <div class="bg-light d-flex justify-content-between">
+                <div>KeshavSoft v10.25</div>
+                <div data-BaseString="Last refresh : " id="KLastRefreshDT">Last refresh : </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/Laundry/js/bootstrap.min.js"></script>
+
+    <script src="/Laundry/js/lodash.js"></script>
+
+    <script src="/js/neutralino.js"></script>
+
+    <script src="/Laundry/js/handlebars.min-v4.7.7.js"></script>
+
+    <script src="/Laundry/js/HandleBars/HelperFuns.js"></script>
+
+    <!-- 	
+
+	<script src="/js/print.min.js"></script>
+	<script src="/js/sweetalert2.js"></script>
+
+
+	<script src="/dist/bundle.js"></script> -->
+
+    <script>
+        let jFSearchInputKeyPress = (event) => {
+            if (event.key === 'Enter') { // key code of the keybord key
+                event.preventDefault();
+                let jVarLocalCurrentTarget = event.currentTarget;
+                let jVarLocalClosestCard = jVarLocalCurrentTarget.closest(".card");
+                let jVarLocalTable = jVarLocalClosestCard.querySelector("table");
+
+                // your code to Run
+                LocalSearchTable({ inTable: jVarLocalTable });
+            };
+        };
+
+        let myFunction = () => {
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value;
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+            console.log("1111111111 : ", input, filter);
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    console.log("222222 : ", td.innerHTML);
+
+                    if (td.innerHTML.indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        };
+
+        function LocalSearchTable({ inTable }) {
+            // Declare variables 
+            var input, filter, table, tr, td, i;
+            input = document.getElementById("SearchQrCodeTable");
+            filter = input.value.toUpperCase();
+            //table = document.getElementById("myTable");
+
+            table = inTable;
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    let tdata = td[j];
+                    if (tdata) {
+                        if (tdata.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        } else {
+                            tr[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+        };
+
+        Neutralino.init();
+    </script>
+
+    <!-- <script src="/Laundry/Bookings/Today/Insert/Js/AddListeners.js" type="module"></script> -->
+
+    <!-- <script src="./Js/AddListeners.js" type="module"></script> -->
+    
+    <script src="./Insert.js" type="module"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "laundryrun",
+  "version": "1.0.0",
+  "description": "Laundry management as Desktop ( using NeutralinoJs) and Web versions ( using NodeJs).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/LaundryRun.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keshavsoft/LaundryRun/issues"
+  },
+  "homepage": "https://github.com/keshavsoft/LaundryRun#readme",
+  "dependencies": {
+    "fs-extra": "^10.1.0",
+    "posthtml": "^0.16.6",
+    "posthtml-include": "^1.7.4"
+  }
+}
