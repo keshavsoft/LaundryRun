@@ -107,9 +107,10 @@
 							<div class="col">
 								<label class="col-form-label fs-2">Customer Name</label>
 								<div class="col">
-									<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName" list="CustomersDataListId"
+									<input type="text" class="form-control fs-2" name="CustomerName" id="CustomerName" list="CustomerNameDataListId"
 										aria-describedby="emailHelp" required="" autofocus>
-										<datalist id="CustomersDataListId">
+
+										<datalist id="CustomerNameDataListId">
 											<option value="Keshav">
 											<option value="9848163021">
 										</datalist>
@@ -124,8 +125,14 @@
 							<div class="col">
 								<label class="col-md-6 col-form-label fs-2">Mobile</label>
 								<div class="col">
-									<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile"
+									<input type="tel" class="form-control fs-2" name="Mobile" id="Mobile" list="CustomerMobileDataListId"
 										pattern="[6789][0-9]{9}">
+
+										<datalist id="CustomerMobileDataListId">
+											<option value="Keshav">
+											<option value="9848163021">
+										</datalist>
+
 									<div class="invalid-feedback">
 										Should not be empty!
 									</div>
@@ -233,7 +240,7 @@
 		Neutralino.init();
 	</script>
 
-	<script src="Js/AddListeners.js" type="module"></script>
+	<script src="/Laundry/Masters/Customers/Insert/Insert.js" type="module"></script>
 </body>
 
 </html>

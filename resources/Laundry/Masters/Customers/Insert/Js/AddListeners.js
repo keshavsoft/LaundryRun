@@ -1,11 +1,14 @@
 import { CustomersSaveFunc } from "./SaveFuncs.js";
-import {CustomersDatalistFunc } from "./CustomersSearch.js";
+import {CustomerNameDatalistFunc, CustomerMobileDatalistFunc } from "./CustomersSearch.js";
 
 let StartFunc = () => {
 
-    CustomersDatalistFunc();
+    CustomerNameDatalistFunc();
+    CustomerMobileDatalistFunc();
+    
     let jVarLocalCustomersSaveButtonId = document.getElementById("CustomersSaveButtonId");
 
     jVarLocalCustomersSaveButtonId.addEventListener("click", CustomersSaveFunc);
 };
-StartFunc();
+
+export{StartFunc};
