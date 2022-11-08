@@ -4,7 +4,6 @@ let TodayShowDalFunc= async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
     let LocalDataFromJson = await ShowTodayFunc();
-    console.log("LocalDataFromJson:",LocalDataFromJson);
     let LocalSNo = 1;
 
     Object.entries(LocalDataFromJson.JsonData).forEach(

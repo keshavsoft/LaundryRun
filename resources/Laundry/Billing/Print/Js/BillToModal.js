@@ -37,7 +37,7 @@ let AddListeners = () => {
             let jVarInsideCurrentTarget = inEvent.currentTarget;
             let jVarInsideClosestTr = jVarInsideCurrentTarget.closest("tr");
             let jVarInsideBookingCode = jVarInsideCurrentTarget.dataset.qrcode;
-            console.log("aaaaaa : ", jVarInsideBookingCode);
+            // console.log("aaaaaa : ", jVarInsideBookingCode);
             ToModal({ inBookingPK: jVarInsideBookingCode });
         });
     };

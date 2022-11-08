@@ -1,6 +1,8 @@
 import { InsertFunc as GarmentsInsertDalFunc } from "../../../../Dal/Garments/Insert.js";
 
 let GarmentsSaveFunc = async () => {
+    let jVarLocalCurrentTarget = event.currentTarget;
+
     //  LocalPreSaveFunc();
     let jVarLocalObject = {};
     let LocalCustomerDetails = jFGarmentsDetails();
@@ -11,9 +13,14 @@ let GarmentsSaveFunc = async () => {
 
     let jVarLocalFromInsert = await GarmentsInsertDalFunc({ inDataToSave: jVarLocalObject });
 
-    console.log("jVarLocalFromInsert : ", jVarLocalFromInsert);
+    if (jVarLocalFromInsert.KTF === false) {
+        let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
 
-    // await LocalPostSaveFunc({ inFromSave: jVarLocalFromInsert });
+        jVarClosestCard.classList.add("border-danger");
+        return await "";
+    };
+
+    window.location.href = "../Show/Show.html";
 };
 
 
@@ -34,6 +41,5 @@ let jFGarmentsDetails = () => {
 
     return jVarLocalReturnObject;
 };
-
 
 export { GarmentsSaveFunc };

@@ -13,8 +13,6 @@ let CustomersSaveFunc = async (event) => {
 
     let jVarLocalFromInsert = await CustomersInsertDalFunc({ inDataToSave: jVarLocalObject });
 
-    console.log("----------------jVarClosestCard : ");
-
     if (jVarLocalFromInsert.KTF === false) {
         let jVarClosestCard = jVarLocalCurrentTarget.closest(".card");
 
