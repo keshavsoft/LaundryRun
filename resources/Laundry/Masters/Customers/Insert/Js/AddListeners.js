@@ -8,5 +8,4 @@ let StartFunc = () => {
 
     jVarLocalCustomersSaveButtonId.addEventListener("click", CustomersSaveFunc);
 };
-
 StartFunc();

@@ -30,5 +30,4 @@ let CustomersDatalistFunc = () => {
     };
     
 };
-
 export{CustomersDatalistFunc};
