@@ -1,8 +1,7 @@
 import { ShowFunc as CustomersShowFunc } from "../../../../Dal/Customers/Show.js";
 
-let jVarLocalFromCustomersShowFunc = await CustomersShowFunc();
-
-let CustomerNameDatalistFunc = () => {
+let CustomerNamesToDatalistFunc = async () => {
+    let jVarLocalFromCustomersShowFunc = await CustomersShowFunc();
 
     let LocalFillDataList = ({ inData }) => {
         let jVarLocalCustomerNameDataListId = document.getElementById("CustomerNameDataListId");
@@ -17,7 +16,7 @@ let CustomerNameDatalistFunc = () => {
             }
         }
     };
-    
+
     if (jVarLocalFromCustomersShowFunc.KTF) {
         let jVarLocalCustomersArray = Object.values(jVarLocalFromCustomersShowFunc.JsonData).map(
             LoopItem => {
@@ -26,11 +25,12 @@ let CustomerNameDatalistFunc = () => {
             }
         );
         LocalFillDataList({ inData: jVarLocalCustomersArray });
-        };
-    
+    };
+
 };
 
-let CustomerMobileDatalistFunc = () => {
+let CustomerMobileDatalistFunc = async () => {
+    let jVarLocalFromCustomersShowFunc = await CustomersShowFunc();
 
     let LocalFillDataList = ({ inData }) => {
         let jVarLocalCustomerMobileDataListId = document.getElementById("CustomerMobileDataListId");
@@ -45,7 +45,7 @@ let CustomerMobileDatalistFunc = () => {
             }
         }
     };
-    
+
     if (jVarLocalFromCustomersShowFunc.KTF) {
         let jVarLocalCustomersArray = Object.values(jVarLocalFromCustomersShowFunc.JsonData).map(
             LoopItem => {
@@ -54,9 +54,8 @@ let CustomerMobileDatalistFunc = () => {
             }
         );
         LocalFillDataList({ inData: jVarLocalCustomersArray });
-        };
-    
+    };
+
 };
 
-
-export{CustomerNameDatalistFunc, CustomerMobileDatalistFunc};
+export { CustomerNamesToDatalistFunc, CustomerMobileDatalistFunc };

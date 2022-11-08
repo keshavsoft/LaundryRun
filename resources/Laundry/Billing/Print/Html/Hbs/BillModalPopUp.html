@@ -1,24 +1,27 @@
-
 {{OrderNo}}</br>
 {{CustomerName}}</br>
 {{Mobile}}</br>
 {{Amount}}</br>
 
-<table>
-    <thead>
-        <tr>
-            <th>#</th>
-            <th>Garment</th>
-            <th>Pcs</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each GarmentDetails}}
-        <tr>
-          <td>{{Name}}</td>
-          <td>{{Pcs}}</td>
-        </tr>
-        {{/each}}
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col" width="10%">#</th>
+                <th scope="col" width="60%">Garment</th>
+                <th scope="col" width="30%">Pcs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each GarmentDetails}}
+            <tr>
+                <td></td>
+                <td>{{Name}}</td>
+                <td>{{Pcs}}</td>
+            </tr>
+            {{/each}}
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
+
+</div>
