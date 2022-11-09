@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example" id="NavBarId">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Today</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-info" href="#" id="BookingHeaderInsertId">
+                    <a class="nav-link active text-white" href="#" id="BookingHeaderInsertId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -37,7 +37,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-info" href="../CustomerSearch/CustomerSearch.html" id="BookingHeaderInsertId">
+                    <a class="nav-link active text-white" href="../CustomerSearch/CustomerSearch.html"
+                        id="BookingHeaderInsertId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -124,6 +125,30 @@
                 <input id="MainHeaderSearchId" class="form-control" type="search" placeholder="Search"
                     aria-label="Search">
             </form>
+            <script>
+                let jFChangeHeaderActiveClass = () => {
+                    let jVarLocalPathArray = window.location.pathname.split("/");
+                    console.log("jVarLocalPathArray:",jVarLocalPathArray);
+                    let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+                    jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+                };
+
+                let jFChangeNavAnchorClass = ({ inClassName }) => {
+                    let jVarLocalNavBarId = document.getElementById("NavBarId");
+                    let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
+
+                    if (jVarLocalAnchorNeeded !== null) {
+
+                        if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
+                            jVarLocalAnchorNeeded.classList.remove("text-white");
+                        };
+
+                        jVarLocalAnchorNeeded.classList.add("text-info");
+                    };
+                };
+
+                jFChangeHeaderActiveClass();
+            </script>
         </div>
     </div>
 </nav>
