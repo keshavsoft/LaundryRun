@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example" id="NavBarId">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Today</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample06"
@@ -8,7 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarsExample06">
             <ul class="navbar-nav me-auto mb-2 mb-xl-0" id="KHeader">
-                <li class="nav-item">
+                <li class="nav-item Bookings">
                     <a class="nav-link active" aria-current="page" href="../../Bookings.html" id="BookingHomeId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -24,8 +24,8 @@
                         Bookings
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-info" href="#" id="BookingHeaderInsertId">
+                <li class="nav-item ">
+                    <a class="nav-link InsertAClass active" href="../Insert/Insert.html" id="BookingHeaderInsertId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -36,8 +36,9 @@
                         Insert
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-info" href="../CustomerSearch/CustomerSearch.html" id="BookingHeaderInsertId">
+                <li class="nav-item ">
+                    <a class="nav-link CustomerSearchAClass active" href="../CustomerSearch/CustomerSearch.html"
+                        id="BookingHeaderInsertId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -48,8 +49,8 @@
                         Search
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="../Show/Show.html" id="BookingHeaderTodayId">
+                <li class="nav-item Show">
+                    <a class="nav-link ShowAClass active" href="../Show/Show.html" id="BookingHeaderTodayId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -58,8 +59,8 @@
                         Show
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="../ShowAll/ShowAll.html" id="BookingHeaderShowAllId">
+                <li class="nav-item ShowAll">
+                    <a class="nav-link ShowAllAClass active" href="../ShowAll/ShowAll.html" id="BookingHeaderShowAllId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -69,7 +70,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../QrCode/QrCode.html" id="BookingHeaderQrCodeId">
+                    <a class="nav-link QrCodeAClass active" href="../QrCode/QrCode.html" id="BookingHeaderQrCodeId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path d="M2 2h2v2H2V2Z" />
@@ -83,7 +84,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../LastBooking/LastBookingHeader.html"
+                    <a class="nav-link LastBookingAClass active" href="../LastBooking/LastBooking.html"
                         id="LastBookingHeaderId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -96,7 +97,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../FindBooking/FindBookingHeader.html"
+                    <a class="nav-link FindBookingAClass active" href="../FindBooking/FindBooking.html"
                         id="FindBookingHeaderId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -108,7 +109,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="../DashBoard/DashBoardHeader.html" id="DashBoardHeaderId">
+                    <a class="nav-link DashBoardAClass active" href="../DashBoard/DashBoard.html" id="DashBoardHeaderId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                             class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
                             <path
@@ -119,11 +120,45 @@
                         Dash Board
                     </a>
                 </li>
+                <li>
+                    <a tabindex="-1" href="#" class="nav-link text-danger" id="QuitId">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            class="bi bi-power d-block mx-auto mb-1" viewBox="0 0 16 16">
+                            <path d="M7.5 1v7h1V1h-1z" />
+                            <path
+                                d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
+                        </svg>
+                        Quit
+                    </a>
+                </li>
             </ul>
             <form role="search">
                 <input id="MainHeaderSearchId" class="form-control" type="search" placeholder="Search"
                     aria-label="Search">
             </form>
+            <script>
+                let jFChangeHeaderActiveClass = () => {
+                    let jVarLocalPathArray = window.location.pathname.split("/");
+                    let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+                    jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+                };
+
+                let jFChangeNavAnchorClass = ({ inClassName }) => {
+                    let jVarLocalNavBarId = document.getElementById("NavBarId");
+                    let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
+                    console.log("jVarLocalAnchorNeeded:", jVarLocalAnchorNeeded);
+                    if (jVarLocalAnchorNeeded !== null) {
+
+                        if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
+                            jVarLocalAnchorNeeded.classList.remove("text-white");
+                        };
+
+                        jVarLocalAnchorNeeded.classList.add("text-info");
+                    };
+                };
+
+                jFChangeHeaderActiveClass();
+            </script>
         </div>
     </div>
 </nav>
