@@ -24,6 +24,7 @@
                         Bookings
                     </a>
                 </li>
+
                 <li class="nav-item ">
                     <a class="nav-link InsertAClass active" href="../Insert/Insert.html" id="BookingHeaderInsertId">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
@@ -36,6 +37,7 @@
                         Insert
                     </a>
                 </li>
+
                 <li class="nav-item ">
                     <a class="nav-link CustomerSearchAClass active" href="../CustomerSearch/CustomerSearch.html"
                         id="BookingHeaderInsertId">
@@ -146,7 +148,6 @@
                 let jFChangeNavAnchorClass = ({ inClassName }) => {
                     let jVarLocalNavBarId = document.getElementById("NavBarId");
                     let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
-                    console.log("jVarLocalAnchorNeeded:", jVarLocalAnchorNeeded);
                     if (jVarLocalAnchorNeeded !== null) {
 
                         if (jVarLocalAnchorNeeded.classList.contains("text-white")) {

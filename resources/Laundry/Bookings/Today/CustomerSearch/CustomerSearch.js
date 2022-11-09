@@ -26,6 +26,4 @@ if (jVarLocalFromCustomersShowFunc.KTF) {
         }
     );
     LocalFillDataList({ inData: jVarLocalCustomersArray });
-
-    console.log("jVarLocalCustomersArray : ", jVarLocalCustomersArray);
 };
