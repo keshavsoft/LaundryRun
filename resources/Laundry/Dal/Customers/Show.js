@@ -1,4 +1,17 @@
 let ShowFunc = async () => {
+    let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+
+    if (typeof Neutralino === 'undefined') {
+        console.log("hii");
+        return await LocalReturnObject;
+    }
+    else{
+      return await LocalNeu();
+    }
+}
+    
+
+let LocalNeu = async () => {
     let LocalJsonFileName = "Customers.json";
 
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
