@@ -1,12 +1,14 @@
-let ShowFunc = async () => {
-    let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+import { StartFunc as OriginalStartFunc } from "./PullFuncs/Original.js";
+import { FromNode } from "./PullFuncs/FromFetch.js";
 
+let ShowFunc = async () => {
+    let LocalDataConfig = { inFolderName: "Masters", inFileName: "Customers.json", inItemName: "CustomerNames" }
     if (typeof Neutralino === 'undefined') {
         // console.log("hii");
-        return await LocalFromFetch1();
+        return await FromNode({...LocalDataConfig});
     }
     else {
-        return await LocalNeu();
+        return await OriginalStartFunc({...LocalDataConfig});
     }
 }
 
@@ -65,37 +67,5 @@ let LocalFromFetch = async () => {
 
 };
 
-let LocalFromFetch1 = async () => {
-    try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let inFetchPostData = {
-            inFolderName: "Masters", inFileName: "Customers.json", inItemName: "CustomerNames", inScreenName: "Show"
-        };
-
-        let jVarLocalFetchUrl = "/JSONApi/API/Data/FromFolder/FromFile/Items/FromDataFolder/NoConfig/Masters/Customers.json/CustomerNames";
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        }
-        const response = await fetch(jVarLocalFetchUrl);
-        const data = await response.json();
-        if (data.KTF === false) {
-            LocalReturnObject.KReason = data.KReason;
-            return await LocalReturnObject;
-        };
-        LocalReturnObject.JsonData = data.DataFromServer;
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
-
-    } catch (error) {
-        console.log("error:", error);
-    }
-
-};
 export { ShowFunc };
