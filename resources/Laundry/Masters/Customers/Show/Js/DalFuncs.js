@@ -4,7 +4,7 @@ let ShowDalFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
     let LocalDataFromJson = await CustomersShowDalFunc();
-    console.log("LocalDataFromJson:",LocalDataFromJson);
+    // console.log("LocalDataFromJson:",LocalDataFromJson);
     let LocalSNo = 1;
 
     if (LocalDataFromJson.KTF === false) {
