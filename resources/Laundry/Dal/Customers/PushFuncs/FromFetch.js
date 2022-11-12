@@ -26,7 +26,6 @@ let FromNode = async ({ inFolderName, inFileName, inItemName }) => {
         }
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
-      console.log("data------:",data);
     } catch (error) {
         console.log("error:", error);
     }
