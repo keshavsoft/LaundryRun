@@ -2,7 +2,6 @@ import { StartFunc as OriginalStartFunc } from "./PushFuncs/Original.js";
 import { FromNode } from "./PushFuncs/FromFetch.js";
 
 let InsertFunc = async ({ inDataToSave }) => {
-    console.log("inDataToSave : ", inDataToSave);
     let LocalDataConfig = {
         inFolderName: "Masters", inFileName: "Customers.json", inItemName: "CustomerNames",
         inDataToSave
@@ -12,7 +11,7 @@ let InsertFunc = async ({ inDataToSave }) => {
         return await FromNode({ ...LocalDataConfig });
     }
     else {
-        return await OriginalStartFunc({  ...LocalDataConfig });
+        return await OriginalStartFunc({ ...LocalDataConfig });
     }
 };
 

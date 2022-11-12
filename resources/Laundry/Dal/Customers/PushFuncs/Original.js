@@ -1,13 +1,13 @@
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inDataToSave = {} }) => {
     let inObjectToInsert = inDataToSave
-    let LocalJsonFileName = "Customers.json";
+    let LocalDataPath = `./KData/JSON/2017/Data/${inFolderName}/${inFileName}`;
 
     let LocalReturnObject = { KTF: false, KResult: "" };
 
-    let LocalCustomersData = await Neutralino.filesystem.readFile('./KData/JSON/2017/Data/Masters/Customers.json');
+    let LocalCustomersData = await Neutralino.filesystem.readFile(LocalDataPath);
 
     let LocalCustomersDataAsJson = JSON.parse(LocalCustomersData);
-    let LocalKeys = Object.keys(LocalCustomersDataAsJson.CustomerNames);
+    let LocalKeys = Object.keys(LocalCustomersDataAsJson[inItemName]);
     let max = 1;
 
     if (LocalKeys.length > 0) {
@@ -16,9 +16,9 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inDataToSave = {}
         max = Math.max(...LocalKeysAsNumbers) + 1;
     };
 
-    LocalCustomersDataAsJson.CustomerNames[max] = inObjectToInsert;
+    LocalCustomersDataAsJson[inItemName][max] = inObjectToInsert;
 
-    let LocalFromWriteFile = await Neutralino.filesystem.writeFile('./KData/JSON/2017/Data/Masters/Customers.json', JSON.stringify(LocalCustomersDataAsJson));
+    let LocalFromWriteFile = await Neutralino.filesystem.writeFile(LocalDataPath, JSON.stringify(LocalCustomersDataAsJson));
 
     if (LocalFromWriteFile.success) {
 
