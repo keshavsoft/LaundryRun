@@ -1,4 +1,4 @@
-import { ShowFunc as CustomersShowFunc } from "../../../../Dal/Customers/Show.js";
+import { ShowFunc as CustomersShowFunc } from "../../../../Dal/Masters/Customers/Show.js";
 
 let CustomerNamesToDatalistFunc = async () => {
     let jVarLocalFromCustomersShowFunc = await CustomersShowFunc();

@@ -1,5 +1,5 @@
 import { AddListenersFunc } from "./Js/AddListeners.js";
-import { ShowFunc as CustomersShowFunc } from "../../../Dal/Customers/Show.js";
+import { ShowFunc as CustomersShowFunc } from "../../../Dal/Masters/Customers/Show.js";
 
 AddListenersFunc();
 

@@ -1,5 +1,3 @@
-
-
 let StartFunc = async ({ inFolderName, inFileName, inItemName }) => {
     let LocalDataPath = `./KData/JSON/2017/Data/${inFolderName}/${inFileName}`;
 

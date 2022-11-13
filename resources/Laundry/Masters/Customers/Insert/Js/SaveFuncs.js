@@ -1,4 +1,4 @@
-import { InsertFunc as CustomersInsertDalFunc } from "../../../../Dal/Customers/Insert.js";
+import { InsertFunc as CustomersInsertDalFunc } from "../../../../Dal/Masters/Customers/Insert.js";
 
 let CustomersSaveFunc = async (event) => {
     let jVarLocalCurrentTarget = event.currentTarget;

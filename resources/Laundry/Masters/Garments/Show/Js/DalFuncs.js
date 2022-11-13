@@ -1,4 +1,4 @@
-import { ShowFunc as GarmentsShowDalFunc } from "../../../../Dal/Garments/Show.js";
+import { ShowFunc as GarmentsShowDalFunc } from "../../../../Dal/Masters/Garments/Show.js";
 
 let ShowDalFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

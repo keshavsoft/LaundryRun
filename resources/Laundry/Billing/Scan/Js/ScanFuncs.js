@@ -1,6 +1,6 @@
 // import { BillingScanHtmlFunc } from "../../Scan/Js/HtmlFuncs/FromHbs.js";
 // import { ChangeClassFunc } from "../../../CommonFuncs/Header";
-import { InsertFunc as DalSaveFunc } from "../../../Dal/Billing/PushFuncs/SaveFunc.js";
+import { InsertFunc as DalSaveFunc } from "../../../Dal/Transactions/Billing/PushFuncs/SaveFunc.js";
 
 let BillingScanFuncs = async () => {
     let jVarLocalFormVertical = document.getElementById("FormVertical");

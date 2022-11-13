@@ -1,5 +1,5 @@
 import { QrCodeModalPopUp } from "../Js/HtmlFuncs/FromHbs.js";
-import { FromBookingPk } from "../../../../Dal/QrCodes/PullFuncs/PickFuncs.js";
+import { FromBookingPk } from "../../../../Dal/Transactions/QrCodes/PullFuncs/PickFuncs.js";
 
 let ToModal = async ({ inRowPK }) => {
     let jVarLocalDataNeeded = await FromBookingPk({ inBookingPK: inRowPK });

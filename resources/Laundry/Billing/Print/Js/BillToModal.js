@@ -1,5 +1,5 @@
 import { BillModalPopUpHtmlFunc } from "./HtmlFuncs/FromHbs.js";
-import { FromPk as DalFromPk } from "../../../Dal/Bookings/PullFuncs/PickFuncs.js";
+import { FromPk as DalFromPk } from "../../../Dal/Transactions/Bookings/PullFuncs/PickFuncs.js";
 
 let ToModal = async ({ inBookingPK }) => {
     //  let jVarLocalDataNeeded = await PickFuncForQrCode({ inRowPK });

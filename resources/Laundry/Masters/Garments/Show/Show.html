@@ -22,7 +22,7 @@
 
 <body>
 	<header>
-		<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example">
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark" aria-label="Sixth navbar example" id="NavBarId">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="#">Garments</a>
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -46,7 +46,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-info" href="#" id="GarmentsShowHeaderId">
+							<a class="nav-link ShowAClass active" href="../Show/Show.html" id="GarmentsShowHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
 									<path
@@ -57,7 +57,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link text-White active" href="../Insert/Insert.html"
+							<a class="nav-link InsertAClass active" href="../Insert/Insert.html"
 								id="GarmentsInsertHeaderId">
 								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
 									class="bi d-block mx-auto mb-1" viewBox="0 0 16 16">
@@ -71,11 +71,45 @@
 								Insert
 							</a>
 						</li>
+						<li>
+							<a tabindex="-1" href="#" class="nav-link text-danger" id="QuitId">
+								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+									class="bi bi-power d-block mx-auto mb-1" viewBox="0 0 16 16">
+									<path d="M7.5 1v7h1V1h-1z"></path>
+									<path
+										d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z">
+									</path>
+								</svg>
+								Quit
+							</a>
+						</li>
 					</ul>
 					<form role="search">
 						<input id="MainHeaderSearchId" class="form-control" type="search" placeholder="Search"
 							aria-label="Search">
 					</form>
+					<script>
+						let jFChangeHeaderActiveClass = () => {
+							let jVarLocalPathArray = window.location.pathname.split("/");
+							let jVarLocalHTMLName = jVarLocalPathArray[jVarLocalPathArray.length - 1];
+							jFChangeNavAnchorClass({ inClassName: jVarLocalHTMLName.split(".")[0] });
+						};
+
+						let jFChangeNavAnchorClass = ({ inClassName }) => {
+							let jVarLocalNavBarId = document.getElementById("NavBarId");
+							let jVarLocalAnchorNeeded = jVarLocalNavBarId.querySelector(`.${inClassName}AClass`);
+							if (jVarLocalAnchorNeeded !== null) {
+
+								if (jVarLocalAnchorNeeded.classList.contains("text-white")) {
+									jVarLocalAnchorNeeded.classList.remove("text-white");
+								};
+
+								jVarLocalAnchorNeeded.classList.add("text-info");
+							};
+						};
+
+						jFChangeHeaderActiveClass();
+					</script>
 				</div>
 			</div>
 		</nav>
@@ -131,6 +165,8 @@
 	<script src="/js/KeshavSoft/HandleBars/HelperFuns.js"></script>
 
 	<script src="/dist/bundle.js"></script> -->
+
+	<script src="/Laundry/Start.js" type="module"></script>
 
 	<script>
 		let jFSearchInputKeyPress = (event) => {

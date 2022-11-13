@@ -1,4 +1,4 @@
-import { InsertFunc as DalSaveFunc } from "../../../Dal/Completed/PushFuncs/SaveFunc.js";
+import { InsertFunc as DalSaveFunc } from "../../../Dal/Transactions/Completed/PushFuncs/SaveFunc.js";
 
 let AddListeners = () => {
     let jVarLocalGoButtonid = document.getElementById("GoButtonid");
