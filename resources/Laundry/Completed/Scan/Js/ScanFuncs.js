@@ -1,6 +1,6 @@
 // import { ScanHtmlFunc } from "../../../Completed/Scan/Js/HtmlFuncs/FromHbs.js";
 // import { InsertFunc } from "../../../../Dal/Completed/ScanFuncs";
-import { InsertFunc as DalSaveFunc } from "../../../Dal/Completed/PushFuncs/SaveFunc.js";
+import { InsertFunc as DalSaveFunc } from "../../../Dal/Transactions/Completed/PushFuncs/SaveFunc.js";
 import { AddListeners } from "./ListenersFuncs.js";
 
 let ScanFunc = async () => {

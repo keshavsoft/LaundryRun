@@ -1,4 +1,4 @@
-import { InsertFunc as GarmentsInsertDalFunc } from "../../../../Dal/Garments/Insert.js";
+import { InsertFunc as GarmentsInsertDalFunc } from "../../../../Dal/Masters/Garments/Insert.js";
 
 let GarmentsSaveFunc = async () => {
     let jVarLocalCurrentTarget = event.currentTarget;

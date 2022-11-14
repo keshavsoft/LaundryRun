@@ -1,4 +1,4 @@
-import { StartFunc as FromBookingAlso } from "../../../Dal/Completed/PullFuncs/FromBookingAlso.js";
+import { StartFunc as FromBookingAlso } from "../../../Dal/Transactions/Completed/PullFuncs/FromBookingAlso.js";
 
 let CompletedShowFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

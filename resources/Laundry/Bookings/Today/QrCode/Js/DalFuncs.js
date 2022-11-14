@@ -1,4 +1,4 @@
-import { StartFunc } from "../../../../Dal/Bookings/PullFuncs/WithQrCodes.js";
+import { StartFunc } from "../../../../Dal/Transactions/Bookings/PullFuncs/WithQrCodes.js";
 
 let ShowAllFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };

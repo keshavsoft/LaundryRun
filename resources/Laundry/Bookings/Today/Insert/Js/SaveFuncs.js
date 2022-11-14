@@ -1,6 +1,6 @@
 import { BookingInsertSuccessFunc } from "./HtmlFuns/FromHbs.js";
-// import { ToModal } from "../../QrCode/Js/QrCodeToModal.js";
-import { StartFunc as PushFuncsStartFunc } from "../../../../Dal/Bookings/PushFuncs/SaveFunc.js";
+import { ToModal } from "../../QrCode/Js/QrCodeToModal.js";
+import { StartFunc as PushFuncsStartFunc } from "../../../../Dal/Transactions/Bookings/PushFuncs/SaveFunc.js";
 import { GarmentsValidateFunc, FormVerticalValidate } from "./ValidityFuncs.js";
 
 let CommonGarmentDetailsKeyName = "GarmentDetails";

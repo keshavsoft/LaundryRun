@@ -1,5 +1,5 @@
 // import { ShowWithBookingDataFunc } from "../../../../Dal/Billing/BillingShowFunc";
-import { StartFunc as FromBookingAlso } from "../../../Dal/Billing/PullFuncs/FromBookingAlso.js";
+import { StartFunc as FromBookingAlso } from "../../../Dal/Transactions/Billing/PullFuncs/FromBookingAlso.js";
 
 let BillingPrintFunc = async () => {
     let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
